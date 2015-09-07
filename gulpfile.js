@@ -3,13 +3,17 @@ var gulp = require('gulp'),
     jade = require('gulp-jade'),
     browserSync = require('browser-sync').create(),
     plumber = require('gulp-plumber'),
-    notify = require('gulp-notify');
+    notify = require('gulp-notify'),
+    rename = require('gulp-rename');
 
 /* routes: object that contains the paths as properties */
 
 var routes = {
 	scss:'assets/css/*.scss',
 	css:'assets/css/',
+    jade:'assets/jade/*.jade',
+    _jade:'!assets/jade/_includes/*.jade',
+    html:'./'
 };
 
 /* Compiling Tasks */
@@ -24,6 +28,7 @@ gulp.task('scss', function() {
         .pipe(sass({
             outputStyle: 'compressed'
         }))
+        .pipe(rename('style.css'))
         .pipe(gulp.dest(routes.css))
         .pipe(notify({
         	title: 'SCSS Compiled & Minified',
@@ -32,3 +37,16 @@ gulp.task('scss', function() {
 });
 
 // Jade
+
+gulp.task('jade', function() {
+    gulp.src([routes.jade, routes._jade])
+        .pipe(plumber({
+            errorHandler: notify.onError("Error: <%= error.message %>")
+        }))
+        .pipe(jade())
+        .pipe(gulp.dest(routes.html))
+        .pipe(notify({
+            title: 'Jade Compiled',
+            message:'jade task completed.',
+        }));
+});
