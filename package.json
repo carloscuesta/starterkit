@@ -1,0 +1,32 @@
+{
+  "name": "carloscuesta-starterkit",
+  "version": "1.0.0",
+  "description": "Carlos Cuesta web development starterkit",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carloscuesta/starterkit.git"
+  },
+  "keywords": [
+    "carlos cuesta",
+    "starterkit",
+    "workflow"
+  ],
+  "author": "Carlos Cuesta",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/carloscuesta/starterkit/issues"
+  },
+  "homepage": "https://github.com/carloscuesta/starterkit#readme",
+  "devDependencies": {
+    "browser-sync": "^2.9.1",
+    "gulp": "^3.9.0",
+    "gulp-jade": "^1.1.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-sass": "^2.0.4"
+  }
+}
