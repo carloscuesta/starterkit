@@ -7,6 +7,7 @@ A simple starterkit that I use to realize my front end development projects.
 - [Gulp](http://gulpjs.com) - Automate and enhance your workflow
 - [Jade](http://jade-lang.com) - Terse language for writing HTML templates.
 - [SASS](http://sass-lang.com) - CSS with superpowers.
+- [Node](https://nodejs.org) - JavaScript runtime built on Chrome's V8 JavaScript engine.
 
 ## Use 
 
@@ -20,21 +21,21 @@ gulp
 
 ```
 .
-├── /dist/                   # Minified, optimized and compiled files                
-│   ├── /assets/             # Assets folder                        
-│   │   ├── /css/            # CSS style files.            
-│   │   ├── /files/          # Static files.         
-│   │   │   └── img/         # Images folder.      
-│   │   └── /js/             # JS files.      
-│   └── index.html           # Rendered and compiled HTML from jade.                     
-├── /node_modules/           # Node modules dependencies and packages.               
-├── /src/                    # Source files.                      
-│   ├── /img/                # Images non compressed.      
-│   ├── /jade/               # Templating Jade files.      
+├── /dist/                   # Minified, optimized and compiled files.
+│   ├── /assets/             # Assets folder.
+│   │   ├── /css/            # CSS style files.
+│   │   ├── /files/          # Static files.
+│   │   │   └── img/         # Images folder.
+│   │   └── /js/             # JS files.
+│   └── index.html           # Rendered and compiled HTML from jade.
+├── /node_modules/           # Node modules dependencies and packages.
+├── /src/                    # Source files.
+│   ├── /img/                # Images non compressed.
+│   ├── /jade/               # Templating Jade files.
 │   │   └── _includes/       # Templating Jade partials.
 │   ├── /scss/               # SCSS style files.
-│   │   └── _includes/       # Templating SCSS partials.                                           
-└── gulpfile.js              # Gulp automatization file.         
+│   │   └── _includes/       # Templating SCSS partials.
+└── gulpfile.js              # Gulp automatization file.
 ```
 
 ## License
