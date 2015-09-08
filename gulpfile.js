@@ -4,16 +4,19 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync').create(),
     plumber = require('gulp-plumber'),
     notify = require('gulp-notify'),
+    imagemin = require('gulp-imagemin'),
     rename = require('gulp-rename');
 
 /* routes: object that contains the paths as properties */
 
 var routes = {
-    scss: 'assets/css/*.scss',
-    css: 'assets/css/',
-    jade: 'assets/jade/*.jade',
-    _jade: 'assets/jade/_includes/*.jade',
-    html: './'
+    scss: 'src/scss/*.scss',
+    css: 'dist/assets/css/',
+    jade: 'src/jade/*.jade',
+    _jade: 'src/jade/_includes/*.jade',
+    html: 'dist/',
+    images: 'src/img/*',
+    imgmin: 'dist/assets/files/img/'
 };
 
 /* Compiling Tasks */
@@ -40,7 +43,7 @@ gulp.task('scss', function() {
 // Jade
 
 gulp.task('jade', function() {
-    gulp.src([routes.jade, '!'+routes._jade])
+    gulp.src([routes.jade, '!' + routes._jade])
         .pipe(plumber({
             errorHandler: notify.onError("Error: <%= error.message %>")
         }))
@@ -53,11 +56,23 @@ gulp.task('jade', function() {
         }));
 });
 
+/* Image compressing task */
+
+gulp.task('image', function() {
+    gulp.src(routes.images)
+        .pipe(imagemin())
+        .pipe(gulp.dest(routes.imgmin))
+        .pipe(notify({
+            title: 'Images optimized',
+            message: 'your images has been compressed.',
+        }));
+});
+
 /* Serving (browserSync) and watching for changes in files */
 
 gulp.task('serve', ['scss'], function() {
     browserSync.init({
-        server: './'
+        server: './build/'
     });
 
     gulp.watch(routes.scss, ['scss']);
@@ -68,5 +83,4 @@ gulp.task('serve', ['scss'], function() {
 
 });
 
-
-gulp.task('default', ['jade', 'scss', 'serve']);
+gulp.task('default', ['jade','scss','image','serve']);

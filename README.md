@@ -16,6 +16,27 @@ cd starterkit/
 gulp 
 ```
 
+## Project Structure
+
+```
+.
+├── /dist/                   # Minified, optimized and compiled files                
+│   ├── /assets/             # Assets folder                        
+│   │   ├── /css/            # CSS style files.            
+│   │   ├── /files/          # Static files.         
+│   │   │   └── img/         # Images folder.      
+│   │   └── /js/             # JS files.      
+│   └── index.html           # Rendered and compiled HTML from jade.                     
+├── /node_modules/           # Node modules dependencies and packages.               
+├── /src/                    # Source files.                      
+│   ├── /img/                # Images non compressed.      
+│   ├── /jade/               # Templating Jade files.      
+│   │   └── _includes/       # Templating Jade partials.
+│   ├── /scss/               # SCSS style files.
+│   │   └── _includes/       # Templating SCSS partials.                                           
+└── gulpfile.js              # Gulp automatization file.         
+```
+
 ## License
 
 The code is available under the [MIT](https://github.com/carloscuesta/starterkit/blob/master/license.txt) license.
