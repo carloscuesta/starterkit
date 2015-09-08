@@ -1,11 +1,13 @@
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
     jade = require('gulp-jade'),
+    concat = require('gulp-concat'),
     browserSync = require('browser-sync').create(),
     plumber = require('gulp-plumber'),
     notify = require('gulp-notify'),
     imagemin = require('gulp-imagemin'),
-    rename = require('gulp-rename');
+    rename = require('gulp-rename'),
+    autoprefixer = require('gulp-autoprefixer');
 
 /* routes: object that contains the paths as properties */
 
@@ -31,6 +33,7 @@ gulp.task('scss', function() {
         .pipe(sass({
             outputStyle: 'compressed'
         }))
+        .pipe(autoprefixer('last 2 versions'))
         .pipe(rename('style.css'))
         .pipe(gulp.dest(routes.css))
         .pipe(browserSync.stream())
@@ -72,7 +75,7 @@ gulp.task('image', function() {
 
 gulp.task('serve', ['scss'], function() {
     browserSync.init({
-        server: './build/'
+        server: './dist/'
     });
 
     gulp.watch(routes.scss, ['scss']);
