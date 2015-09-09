@@ -7,7 +7,8 @@ var gulp = require('gulp'),
     notify = require('gulp-notify'),
     imagemin = require('gulp-imagemin'),
     rename = require('gulp-rename'),
-    autoprefixer = require('gulp-autoprefixer');
+    autoprefixer = require('gulp-autoprefixer'),
+    uglify = require('gulp-uglify');
 
 /* routes: object that contains the paths as properties */
 
@@ -16,6 +17,8 @@ var routes = {
     css: 'dist/assets/css/',
     jade: 'src/jade/*.jade',
     _jade: 'src/jade/_includes/*.jade',
+    js: 'src/js/*.js',
+    jsmin: 'dist/assets/js/',
     html: 'dist/',
     images: 'src/img/*',
     imgmin: 'dist/assets/files/img/'
@@ -59,6 +62,18 @@ gulp.task('jade', function() {
         }));
 });
 
+gulp.task('scripts', function() {
+    return gulp.src(routes.js)
+        .pipe(concat('script.js'))
+        .pipe(uglify())
+        .pipe(gulp.dest(routes.jsmin))
+        .pipe(browserSync.stream())
+        .pipe(notify({
+            title: 'JavaScript Minified and Concatenated',
+            message: 'your js files has been minified and concatenated.',
+        }));
+});
+
 /* Image compressing task */
 
 gulp.task('image', function() {
@@ -81,9 +96,8 @@ gulp.task('serve', ['scss'], function() {
     gulp.watch(routes.scss, ['scss']);
     gulp.watch(routes.jade, ['jade']);
     gulp.watch(routes._jade, ['jade']);
-    gulp.watch(routes.jade).on('change', browserSync.reload);
-    gulp.watch(routes._jade).on('change', browserSync.reload);
+    gulp.watch(routes.js, ['scripts']);
 
 });
 
-gulp.task('default', ['jade','scss','image','serve']);
+gulp.task('default', ['jade', 'scss', 'scripts', 'image', 'serve']);
