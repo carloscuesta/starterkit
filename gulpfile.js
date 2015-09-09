@@ -8,40 +8,69 @@ var gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),
     rename = require('gulp-rename'),
     autoprefixer = require('gulp-autoprefixer'),
-    uglify = require('gulp-uglify');
+    uglify = require('gulp-uglify'),
+    ftp = require('vinyl-ftp');
 
-/* routes: object that contains the paths as properties */
+/* routes: object that contains the paths */
 
 var routes = {
-    scss: 'src/scss/*.scss',
-    css: 'dist/assets/css/',
-    jade: 'src/jade/*.jade',
-    _jade: 'src/jade/_includes/*.jade',
-    js: 'src/js/*.js',
-    jsmin: 'dist/assets/js/',
-    html: 'dist/',
-    images: 'src/img/*',
-    imgmin: 'dist/assets/files/img/'
-};
+    styles: {
+        scss: 'src/scss/*.scss',
+        css: 'dist/assets/css/'
+    },
+
+    templates: {
+        jade: 'src/jade/*.jade',
+        _jade: 'src/jade/_includes/*.jade'
+    },
+
+    scripts: {
+        js: 'src/js/*.js',
+        jsmin: 'dist/assets/js/'
+    },
+
+    files: {
+        html: 'dist/',
+        images: 'src/img/*',
+        imgmin: 'dist/assets/files/img/'
+    },
+
+    deployDirs: {
+        baseDir: 'dist/',
+        baseDirFiles: 'dist/**',
+        ftpUploadDir: '/www/gulp-deploy/'
+    }
+}
+
+/* ftpCredentials: info used to deploy @ ftp server */
+
+var ftpCredentials = {
+    host: 'HOST', 
+    user: 'USER', 
+    password: 'PASSWORD' 
+}
 
 /* Compiling Tasks */
 
 // SCSS
 
 gulp.task('scss', function() {
-    return gulp.src(routes.scss)
+    return gulp.src(routes.styles.scss)
         .pipe(plumber({
-            errorHandler: notify.onError("Error: <%= error.message %>")
+            errorHandler: notify.onError({
+                title: "Error: Compiling SCSS.",
+                message:"<%= error.message %>"
+            })
         }))
         .pipe(sass({
             outputStyle: 'compressed'
         }))
         .pipe(autoprefixer('last 2 versions'))
         .pipe(rename('style.css'))
-        .pipe(gulp.dest(routes.css))
+        .pipe(gulp.dest(routes.styles.css))
         .pipe(browserSync.stream())
         .pipe(notify({
-            title: 'SCSS Compiled & Minified',
+            title: 'SCSS Compiled and Minified succesfully!',
             message: 'scss task completed.',
         }));
 });
@@ -49,27 +78,32 @@ gulp.task('scss', function() {
 // Jade
 
 gulp.task('jade', function() {
-    gulp.src([routes.jade, '!' + routes._jade])
+    gulp.src([routes.templates.jade, '!' + routes.templates._jade])
         .pipe(plumber({
-            errorHandler: notify.onError("Error: <%= error.message %>")
+            errorHandler: notify.onError({
+                title: "Error: Compiling Jade.",
+                message:"<%= error.message %>"
+            })
         }))
         .pipe(jade())
-        .pipe(gulp.dest(routes.html))
+        .pipe(gulp.dest(routes.files.html))
         .pipe(browserSync.stream())
         .pipe(notify({
-            title: 'Jade Compiled',
-            message: 'jade task completed.',
+            title: 'Jade Compiled succesfully!',
+            message: 'Jade task completed.',
         }));
 });
 
+/* Scripts (js) minify and concat into a single file.*/
+
 gulp.task('scripts', function() {
-    return gulp.src(routes.js)
+    return gulp.src(routes.scripts.js)
         .pipe(concat('script.js'))
         .pipe(uglify())
-        .pipe(gulp.dest(routes.jsmin))
+        .pipe(gulp.dest(routes.scripts.jsmin))
         .pipe(browserSync.stream())
         .pipe(notify({
-            title: 'JavaScript Minified and Concatenated',
+            title: 'JavaScript Minified and Concatenated!',
             message: 'your js files has been minified and concatenated.',
         }));
 });
@@ -77,13 +111,36 @@ gulp.task('scripts', function() {
 /* Image compressing task */
 
 gulp.task('image', function() {
-    gulp.src(routes.images)
+    gulp.src(routes.files.images)
         .pipe(imagemin())
-        .pipe(gulp.dest(routes.imgmin))
+        .pipe(gulp.dest(routes.files.imgmin))
         .pipe(notify({
-            title: 'Images optimized',
+            title: 'Images optimized!',
             message: 'your images has been compressed.',
         }));
+});
+
+/* Deploy, deploy dist/ files to an ftp server */
+
+gulp.task('deploy', function() {
+    var connection = ftp.create({
+        host: ftpCredentials.host,
+        user: ftpCredentials.user,
+        password: ftpCredentials.password
+    });
+
+    return gulp.src(routes.deployDirs.baseDirFiles, {
+        base: routes.deployDirs.baseDir,
+        buffer: false
+    })
+    .pipe(plumber({
+        errorHandler: notify.onError({
+            title: "Error: Deploy failed.",
+            message:"<%= error.message %>"
+        })
+    }))
+    .pipe(connection.newer(routes.deployDirs.ftpUploadDir))
+    .pipe(connection.dest(routes.deployDirs.ftpUploadDir))
 });
 
 /* Serving (browserSync) and watching for changes in files */
@@ -93,10 +150,10 @@ gulp.task('serve', ['scss'], function() {
         server: './dist/'
     });
 
-    gulp.watch(routes.scss, ['scss']);
-    gulp.watch(routes.jade, ['jade']);
-    gulp.watch(routes._jade, ['jade']);
-    gulp.watch(routes.js, ['scripts']);
+    gulp.watch(routes.styles.scss, ['scss']);
+    gulp.watch(routes.templates.jade, ['jade']);
+    gulp.watch(routes.templates._jade, ['jade']);
+    gulp.watch(routes.scripts.js, ['scripts']);
 
 });
 

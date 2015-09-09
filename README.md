@@ -12,8 +12,8 @@ A simple starterkit that I use to realize my front end development projects.
 ## Use 
 
 ```bash
-git clone https://github.com/carloscuesta/starterkit.git && cd starterkit/ && npm install
-gulp 
+$ git clone https://github.com/carloscuesta/starterkit.git && cd starterkit/ && npm install
+$ gulp 
 ```
 
 ## Project Structure
