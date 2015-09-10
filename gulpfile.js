@@ -9,7 +9,9 @@ var gulp = require('gulp'),
     rename = require('gulp-rename'),
     autoprefixer = require('gulp-autoprefixer'),
     uglify = require('gulp-uglify'),
-    ftp = require('vinyl-ftp');
+    ftp = require('vinyl-ftp'),
+    critical = require('critical'),
+    cssimport = require('gulp-cssimport');
 
 /* routes: object that contains the paths */
 
@@ -62,6 +64,7 @@ gulp.task('scss', function() {
                 message:"<%= error.message %>"
             })
         }))
+        .pipe(cssimport({}))
         .pipe(sass({
             outputStyle: 'compressed'
         }))
@@ -145,7 +148,7 @@ gulp.task('deploy', function() {
 
 /* Serving (browserSync) and watching for changes in files */
 
-gulp.task('serve', ['scss'], function() {
+gulp.task('browser-sync', function() {
     browserSync.init({
         server: './dist/'
     });
@@ -157,4 +160,4 @@ gulp.task('serve', ['scss'], function() {
 
 });
 
-gulp.task('default', ['jade', 'scss', 'scripts', 'image', 'serve']);
+gulp.task('default', ['jade', 'scss', 'scripts', 'image', 'browser-sync']);

@@ -23,9 +23,11 @@
   "homepage": "https://github.com/carloscuesta/starterkit#readme",
   "devDependencies": {
     "browser-sync": "^2.9.1",
+    "critical": "^0.6.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.0.1",
     "gulp-concat": "^2.6.0",
+    "gulp-cssimport": "^2.1.1",
     "gulp-imagemin": "^2.3.0",
     "gulp-jade": "^1.1.0",
     "gulp-notify": "^2.2.0",
