@@ -13,11 +13,11 @@ A simple starterkit that I use to realize my front end static development projec
 
 ### Requirements
 
-[Node.js](https://nodejs.org/en/) installed. 
-[Gulp](http://gulpjs.com)
+- [Node.js](https://nodejs.org/en/)
+- [Gulp](http://gulpjs.com)
 ```bash
 $ npm install -g gulp
-``
+```
 
 ### Use 
 
