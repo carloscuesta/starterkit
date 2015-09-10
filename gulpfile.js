@@ -18,6 +18,7 @@ var gulp = require('gulp'),
 var routes = {
     styles: {
         scss: 'src/scss/*.scss',
+        _scss: 'src/scss/_includes/*.scss',
         css: 'dist/assets/css/'
     },
 
@@ -154,6 +155,7 @@ gulp.task('browser-sync', function() {
     });
 
     gulp.watch(routes.styles.scss, ['scss']);
+    gulp.watch(routes.styles._scss, ['scss']);
     gulp.watch(routes.templates.jade, ['jade']);
     gulp.watch(routes.templates._jade, ['jade']);
     gulp.watch(routes.scripts.js, ['scripts']);

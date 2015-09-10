@@ -38,7 +38,7 @@ $ gulp
 
 ```gulp deploy```: 
 
-If you want to use the **deploy** feature, you will have to edit the [gulpfile.js](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L47) lines between 45-51, the following properties [host](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L48),  [user](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L49) and [password](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L50) for your ftp ones.
+If you want to use the **deploy** feature, you will have to edit the [gulpfile.js](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L48) lines between 48-54, the following properties [host](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L51),  [user](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L52) and [password](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L53) for your ftp ones.
 
 
 ## Project Structure
