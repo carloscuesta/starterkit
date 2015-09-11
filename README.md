@@ -1,6 +1,6 @@
 # Carlos Cuesta Starter Kit
 
-A simple starterkit that I use to realize my front end static development projects. 
+> A simple starterkit that I use to realize my front end static development projects. 
 
 ## Technologies 
 
@@ -29,7 +29,8 @@ $ gulp
 
 ## Features
 
-- ```gulp```: Runs the **default task** including the following tasks :
+```gulp```: Runs the **default task** including the following tasks :
+
 - ```scss```: SCSS compiling to CSS.
 - ```jade```: Jade compiling and rendering to HTML.
 - ```scripts```: Scripts minification and concatenation in a single file.
@@ -38,7 +39,11 @@ $ gulp
 
 ```gulp deploy```: 
 
-If you want to use the **deploy** feature, you will have to edit the [gulpfile.js](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L48) lines between 48-54, the following properties [host](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L51),  [user](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L52) and [password](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L53) for your ftp ones.
+If you want to use the **deploy** feature, you will have to edit the [```gulpfile.js```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L48) lines between 48-54 the following properties: [```host```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L51), [```user```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L52) and [```password```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L53) for your ftp ones.
+
+Once you setup ftpCredentials, you will have to choose a directory of your server where the deploy will go, to do that edit [```ftpUploadsDir```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L44).
+
+Now you will be able to use ```gulp deploy``` and your ```/dist/``` folder will go up to your ftp server!.
 
 
 ## Project Structure

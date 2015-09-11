@@ -41,7 +41,7 @@ var routes = {
     deployDirs: {
         baseDir: 'dist/',
         baseDirFiles: 'dist/**',
-        ftpUploadDir: '/www/gulp-deploy/'
+        ftpUploadDir: 'FTP-DIRECTORY'
     }
 }
 
