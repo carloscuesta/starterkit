@@ -162,4 +162,8 @@ gulp.task('browser-sync', function() {
 
 });
 
-gulp.task('default', ['jade', 'scss', 'scripts', 'image', 'browser-sync']);
+gulp.task('build', ['jade', 'scss', 'scripts', 'image', 'browser-sync']);
+
+gulp.task('default', function() {
+    gulp.start('build');
+});

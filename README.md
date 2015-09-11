@@ -39,13 +39,13 @@ $ gulp
 
 ```gulp deploy```: Deploy your ```dist``` folder into your server.
 
-If you want to use the **deploy** task, you will have to edit the [```gulpfile.js```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L48) lines between 48-54: 
+If you want to use the **deploy** task, you will have to edit the [```gulpfile.js```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L48) lines between 48-54 with your ftp connection info: 
 
 - [```host```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L51)
 - [```user```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L52)
-- [```password```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L53) for your ftp ones.
+- [```password```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L53).
 
-Once you setup [```ftpCredentials```], you will have to choose a directory of your server where the deploy will go, edit 
+Once you setup ```ftpCredentials```, you will have to choose a directory of your server where the deploy will go:
 
 - [```ftpUploadsDir```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L44).
 
