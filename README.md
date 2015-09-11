@@ -27,7 +27,7 @@ $ cd starterkit/ && npm install
 $ gulp 
 ```
 
-## Features
+## Tasks
 
 ```gulp```: Runs the **default task** including the following tasks :
 
@@ -39,15 +39,9 @@ $ gulp
 
 ```gulp deploy```: Deploy your ```dist``` folder into your server.
 
-If you want to use the **deploy** task, you will have to edit the [```gulpfile.js```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L48) lines between 48-54 with your ftp connection info: 
+If you want to use the **deploy** task, you will have to edit the [```gulpfile.js```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L48) lines between 48-54 with your ftp connection info: [```host```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L51) | [```user```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L52) | [```password```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L53)
 
-- [```host```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L51)
-- [```user```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L52)
-- [```password```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L53).
-
-Once you setup ```ftpCredentials```, you will have to choose a directory of your server where the deploy will go:
-
-- [```ftpUploadsDir```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L44).
+Once you setup ```ftpCredentials```, you will have to choose a directory of your server where the deploy will go: [```ftpUploadsDir```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L44)
 
 Now you will be able to use ```gulp deploy``` and your ```/dist/``` folder will go up to your ftp server!
 
@@ -72,6 +66,12 @@ Now you will be able to use ```gulp deploy``` and your ```/dist/``` folder will 
 │   │   └── _includes/       # Templating SCSS partials.
 └── gulpfile.js              # Gulp automatization file.
 ```
+
+## Screenshots
+
+![gulp](https://cloud.githubusercontent.com/assets/7629661/9824378/ae8ade36-58cc-11e5-875a-86929fadb327.png)
+![gulp-deploy](https://cloud.githubusercontent.com/assets/7629661/9824399/cece3d5a-58cc-11e5-9612-697e8a28b57b.png)
+
 
 ## License
 
