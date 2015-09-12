@@ -7,6 +7,7 @@
 - [**Gulp**](http://gulpjs.com) - Automate and enhance your workflow
 - [**Jade**](http://jade-lang.com) - Terse language for writing HTML templates.
 - [**SASS**](http://sass-lang.com) - CSS with superpowers.
+- [**Babel**](https://babeljs.io) - Use next generation JavaScript, today (ES6 => ES5).
 - [**NodeJS**](https://nodejs.org) - JavaScript runtime built on Chrome's V8 JavaScript engine.
 
 ## Requirements and Use 
@@ -33,7 +34,7 @@ $ gulp
 
 - ```scss```: SCSS compiling to CSS.
 - ```jade```: Jade compiling and rendering to HTML.
-- ```scripts```: Scripts minification and concatenation in a single file.
+- ```scripts```: ES6 to ES5 with babel, scripts minification and concatenation into a single file.
 - ```image```: Image compression.
 - ```browser-sync```: Starts a server at ```./dist/``` with all your compiled files, looking for file changes and injecting them into your browser.
 

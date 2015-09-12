@@ -10,7 +10,7 @@ var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     uglify = require('gulp-uglify'),
     ftp = require('vinyl-ftp'),
-    critical = require('critical'),
+    babel = require('gulp-babel'),
     cssimport = require('gulp-cssimport');
 
 /* routes: object that contains the paths */
@@ -98,11 +98,12 @@ gulp.task('jade', function() {
         }));
 });
 
-/* Scripts (js) minify and concat into a single file.*/
+/* Scripts (js) ES6 => ES5, minify and concat into a single file.*/
 
 gulp.task('scripts', function() {
     return gulp.src(routes.scripts.js)
         .pipe(concat('script.js'))
+        .pipe(babel())
         .pipe(uglify())
         .pipe(gulp.dest(routes.scripts.jsmin))
         .pipe(browserSync.stream())
