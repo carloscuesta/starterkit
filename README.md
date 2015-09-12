@@ -31,18 +31,18 @@ $ gulp
 
 ## Tasks
 
-```gulp```: Runs the **default task** including the following tasks :
+```gulp```: Runs the **default task** including the following ones :
 
 - ```styles```: SCSS compiling to CSS.
 - ```templates```: Jade compiling and rendering to HTML.
 - ```scripts```: ES6 to ES5 with babel, scripts minification and concatenation into a single file.
 - ```images```: Image compression.
 - ```browser-sync```: Starts a server at ```./dist/``` with all your compiled files, looking for file changes and injecting them into your browser.
-- ```beautify```: Beautify your preproduction files at ```./dist/``` (JS, SCSS).
+- ```beautify```: Beautify your preproduction files at ```./dist/```.
 
 ```gulp deploy```: Deploy your ```dist``` folder into your server.
 
-If you want to use the **deploy** task, you will have to edit the [```gulpfile.js```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L48) lines between 48-54 with your ftp connection info: [```host```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L51) | [```user```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L52) | [```password```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L53)
+If you want to use the **deploy** task, you will have to edit the [```gulpfile.js```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L48) lines between 52-56 with your ftp connection info: [```host```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L53) | [```user```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L54) | [```password```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L55)
 
 Once you setup ```ftpCredentials```, you will have to choose a directory of your server where the deploy will go: [```ftpUploadsDir```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L44)
 

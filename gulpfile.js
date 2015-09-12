@@ -146,8 +146,12 @@ gulp.task('deploy', function() {
                 message:"<%= error.message %>"
             })
         }))
-        .pipe(connection.newer(routes.deployDirs.ftpUploadDir))
+        //.pipe(connection.newer(routes.deployDirs.ftpUploadDir))
         .pipe(connection.dest(routes.deployDirs.ftpUploadDir))
+        .pipe(notify({
+            title: 'Deploy succesful!',
+            message: 'Your deploy has been done!.',
+        }));
 });
 
 /* Preproduction beautifiying task (SCSS, JS) */
@@ -155,7 +159,17 @@ gulp.task('deploy', function() {
 gulp.task('beautify', function() {
     gulp.src(routes.scripts.js)
         .pipe(beautify({indentSize: 4}))
+        .pipe(plumber({
+            errorHandler: notify.onError({
+                title: "Error: Beautify failed.",
+                message:"<%= error.message %>"
+            })
+        }))
         .pipe(gulp.dest(routes.scripts.base))
+        .pipe(notify({
+            title: 'JS Beautified!',
+            message: 'beautify task completed.',
+        }));
 });
 
 /* Serving (browserSync) and watching for changes in files */
