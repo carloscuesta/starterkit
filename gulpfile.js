@@ -17,24 +17,24 @@ var gulp = require('gulp'),
 
 var routes = {
     styles: {
-        scss: 'src/scss/*.scss',
-        _scss: 'src/scss/_includes/*.scss',
+        scss: 'src/styles/*.scss',
+        _scss: 'src/styles/_includes/*.scss',
         css: 'dist/assets/css/'
     },
 
     templates: {
-        jade: 'src/jade/*.jade',
-        _jade: 'src/jade/_includes/*.jade'
+        jade: 'src/templates/*.jade',
+        _jade: 'src/templates/_includes/*.jade'
     },
 
     scripts: {
-        js: 'src/js/*.js',
+        js: 'src/scripts/*.js',
         jsmin: 'dist/assets/js/'
     },
 
     files: {
         html: 'dist/',
-        images: 'src/img/*',
+        images: 'src/images/*',
         imgmin: 'dist/assets/files/img/'
     },
 
@@ -57,7 +57,7 @@ var ftpCredentials = {
 
 // SCSS
 
-gulp.task('scss', function() {
+gulp.task('styles', function() {
     return gulp.src(routes.styles.scss)
         .pipe(plumber({
             errorHandler: notify.onError({
@@ -81,7 +81,7 @@ gulp.task('scss', function() {
 
 // Jade
 
-gulp.task('jade', function() {
+gulp.task('templates', function() {
     gulp.src([routes.templates.jade, '!' + routes.templates._jade])
         .pipe(plumber({
             errorHandler: notify.onError({
@@ -115,7 +115,7 @@ gulp.task('scripts', function() {
 
 /* Image compressing task */
 
-gulp.task('image', function() {
+gulp.task('images', function() {
     gulp.src(routes.files.images)
         .pipe(imagemin())
         .pipe(gulp.dest(routes.files.imgmin))
@@ -155,15 +155,15 @@ gulp.task('browser-sync', function() {
         server: './dist/'
     });
 
-    gulp.watch(routes.styles.scss, ['scss']);
-    gulp.watch(routes.styles._scss, ['scss']);
-    gulp.watch(routes.templates.jade, ['jade']);
-    gulp.watch(routes.templates._jade, ['jade']);
+    gulp.watch(routes.styles.scss, ['styles']);
+    gulp.watch(routes.styles._scss, ['styles']);
+    gulp.watch(routes.templates.jade, ['templates']);
+    gulp.watch(routes.templates._jade, ['templates']);
     gulp.watch(routes.scripts.js, ['scripts']);
 
 });
 
-gulp.task('build', ['jade', 'scss', 'scripts', 'image', 'browser-sync']);
+gulp.task('build', ['templates', 'styles', 'scripts', 'images', 'browser-sync']);
 
 gulp.task('default', function() {
     gulp.start('build');

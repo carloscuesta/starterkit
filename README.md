@@ -60,11 +60,12 @@ Now you will be able to use ```gulp deploy``` and your ```/dist/``` folder will 
 │   └── *.html               # Rendered and compiled HTMLs from jade.
 ├── /node_modules/           # Node modules dependencies and packages.
 ├── /src/                    # Source files.
-│   ├── /img/                # Images non compressed.
-│   ├── /jade/               # Templating Jade files.
-│   │   └── _includes/       # Templating Jade partials.
-│   ├── /scss/               # SCSS style files.
+│   ├── /images/             # Images non compressed.
+│   ├── /scripts/            # JavaScript files.
+│   ├── /styles/             # SCSS style files.
 │   │   └── _includes/       # Templating SCSS partials.
+│   ├── /templates/          # Templating Jade files.
+│   │   └── _includes/       # Templating Jade partials.
 └── gulpfile.js              # Gulp automatization file.
 ```
 
