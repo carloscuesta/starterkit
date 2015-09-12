@@ -11,7 +11,8 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     ftp = require('vinyl-ftp'),
     babel = require('gulp-babel'),
-    cssimport = require('gulp-cssimport');
+    cssimport = require('gulp-cssimport'),
+    beautify = require('gulp-beautify');
 
 /* routes: object that contains the paths */
 
@@ -28,6 +29,7 @@ var routes = {
     },
 
     scripts: {
+        base:'src/scripts/',
         js: 'src/scripts/*.js',
         jsmin: 'dist/assets/js/'
     },
@@ -65,11 +67,11 @@ gulp.task('styles', function() {
                 message:"<%= error.message %>"
             })
         }))
-        .pipe(cssimport({}))
         .pipe(sass({
             outputStyle: 'compressed'
         }))
-        .pipe(autoprefixer('last 2 versions'))
+        .pipe(cssimport({}))
+        .pipe(autoprefixer('last 3 versions'))
         .pipe(rename('style.css'))
         .pipe(gulp.dest(routes.styles.css))
         .pipe(browserSync.stream())
@@ -138,14 +140,22 @@ gulp.task('deploy', function() {
         base: routes.deployDirs.baseDir,
         buffer: false
     })
-    .pipe(plumber({
-        errorHandler: notify.onError({
-            title: "Error: Deploy failed.",
-            message:"<%= error.message %>"
-        })
-    }))
-    .pipe(connection.newer(routes.deployDirs.ftpUploadDir))
-    .pipe(connection.dest(routes.deployDirs.ftpUploadDir))
+        .pipe(plumber({
+            errorHandler: notify.onError({
+                title: "Error: Deploy failed.",
+                message:"<%= error.message %>"
+            })
+        }))
+        .pipe(connection.newer(routes.deployDirs.ftpUploadDir))
+        .pipe(connection.dest(routes.deployDirs.ftpUploadDir))
+});
+
+/* Preproduction beautifiying task (SCSS, JS) */
+
+gulp.task('beautify', function() {
+    gulp.src(routes.scripts.js)
+        .pipe(beautify({indentSize: 4}))
+        .pipe(gulp.dest(routes.scripts.base))
 });
 
 /* Serving (browserSync) and watching for changes in files */
@@ -155,12 +165,9 @@ gulp.task('browser-sync', function() {
         server: './dist/'
     });
 
-    gulp.watch(routes.styles.scss, ['styles']);
-    gulp.watch(routes.styles._scss, ['styles']);
-    gulp.watch(routes.templates.jade, ['templates']);
-    gulp.watch(routes.templates._jade, ['templates']);
-    gulp.watch(routes.scripts.js, ['scripts']);
-
+    gulp.watch([routes.styles.scss, routes.styles._scss], ['styles']);
+    gulp.watch([routes.templates.jade, routes.templates._jade], ['templates']);
+    gulp.watch(routes.scripts.js, ['scripts', 'beautify']);
 });
 
 gulp.task('build', ['templates', 'styles', 'scripts', 'images', 'browser-sync']);

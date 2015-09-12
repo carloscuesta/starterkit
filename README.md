@@ -16,6 +16,7 @@
 
 - [Node.js](https://nodejs.org/en/)
 - [Gulp](http://gulpjs.com)
+
 ```bash
 $ npm install -g gulp
 ```
@@ -32,11 +33,12 @@ $ gulp
 
 ```gulp```: Runs the **default task** including the following tasks :
 
-- ```scss```: SCSS compiling to CSS.
-- ```jade```: Jade compiling and rendering to HTML.
+- ```styles```: SCSS compiling to CSS.
+- ```templates```: Jade compiling and rendering to HTML.
 - ```scripts```: ES6 to ES5 with babel, scripts minification and concatenation into a single file.
-- ```image```: Image compression.
+- ```images```: Image compression.
 - ```browser-sync```: Starts a server at ```./dist/``` with all your compiled files, looking for file changes and injecting them into your browser.
+- ```beautify```: Beautify your preproduction files at ```./dist/``` (JS, SCSS).
 
 ```gulp deploy```: Deploy your ```dist``` folder into your server.
 
