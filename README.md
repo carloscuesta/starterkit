@@ -1,8 +1,10 @@
 # Carlos Cuesta Starter Kit
 
-![starterkit](https://cloud.githubusercontent.com/assets/7629661/9838465/89626e74-5a5e-11e5-9b7d-e0ce76856732.gif)
+<p align="center">
+	<img src="https://cloud.githubusercontent.com/assets/7629661/9838465/89626e74-5a5e-11e5-9b7d-e0ce76856732.gif" alt="Carlos Cuesta Starterkit"/>
+</p>
 
-> A simple starterkit that I use to realize my front end static development projects. 
+> A simple starterkit that I use to realize my front end static development projects. If you have comments or suggestions feel free to give me a shout on [Twitter](http://twitter.com/crloscuesta)!
 
 ## Technologies 
 
