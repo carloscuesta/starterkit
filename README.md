@@ -1,5 +1,7 @@
 # Carlos Cuesta Starter Kit
 
+![starterkit](https://cloud.githubusercontent.com/assets/7629661/9838465/89626e74-5a5e-11e5-9b7d-e0ce76856732.gif)
+
 > A simple starterkit that I use to realize my front end static development projects. 
 
 ## Technologies 
@@ -72,9 +74,6 @@ Now you will be able to use ```gulp deploy``` and your ```/dist/``` folder will 
 ```
 
 ## Screenshots
-
-![gulp](https://cloud.githubusercontent.com/assets/7629661/9824378/ae8ade36-58cc-11e5-875a-86929fadb327.png)
-![gulp-deploy](https://cloud.githubusercontent.com/assets/7629661/9824399/cece3d5a-58cc-11e5-9612-697e8a28b57b.png)
 
 
 ## License
