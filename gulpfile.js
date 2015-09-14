@@ -146,7 +146,6 @@ gulp.task('deploy', function() {
                 message:"<%= error.message %>"
             })
         }))
-        //.pipe(connection.newer(routes.deployDirs.ftpUploadDir))
         .pipe(connection.dest(routes.deployDirs.ftpUploadDir))
         .pipe(notify({
             title: 'Deploy succesful!',
