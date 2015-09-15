@@ -1,0 +1,17 @@
+@import '_includes/_vars';
+@import '_includes/_mixins';
+
+html, body {
+	margin:0;
+}
+
+nav.sidebar {
+	background-color: $primary-bg-color;
+	width: 325px;
+	height: 100%;
+	position:fixed;
+	@include bp-tablet {
+		width: 100%;
+		height:175px;
+	}
+}

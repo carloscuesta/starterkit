@@ -1,0 +1,5 @@
+@mixin bp-tablet {
+  @media (max-width: #{$max-width}) {
+    @content;
+  }
+}
