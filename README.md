@@ -37,7 +37,7 @@ $ gulp
 
 ```gulp```: Runs the **default task** including the following ones :
 
-- ```styles```: SCSS compiling to CSS.
+- ```styles```: SCSS compiling to CSS, css minification and autoprefixing.
 - ```templates```: Jade compiling and rendering to HTML.
 - ```scripts```: ES6 to ES5 with babel, scripts minification and concatenation into a single file.
 - ```images```: Image compression.
