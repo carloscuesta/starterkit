@@ -1,4 +1,4 @@
-@mixin bp-tablet {
+@mixin bp-mobile {
   @media (max-width: #{$max-width}) {
     @content;
   }
