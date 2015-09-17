@@ -84,13 +84,36 @@ h3 {
     font-weight: 500;
 }
 
+b {
+    color: $primary-bg-color;
+    font-weight: 400;
+}
+
 .starterkit-section p {
     font-weight: 300;
 }
+
+p>code {
+    background: $white;
+    padding: 0 5px 2px;
+    border-radius: 4px;
+    position: relative;
+    top: -1px;
+    margin: 0 3px 0 1px;
+    font-size: 90%;
+    font-family: monospace;
+}
+
 
 @include bp-mobile {
     .download,
     .fork {
         display: none;
+    }
+}
+
+@include mobile-aspect {
+    .title-hero {
+        font-size:60px!important;
     }
 }

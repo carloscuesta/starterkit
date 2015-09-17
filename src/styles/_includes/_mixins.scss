@@ -3,3 +3,9 @@
     @content;
   }
 }
+
+@mixin mobile-aspect {
+	@media screen and (device-aspect-ratio: 40/71) {
+		@content;
+	}
+}
