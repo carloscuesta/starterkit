@@ -67,20 +67,20 @@ html, body {
 }
 
 .button:hover {
-    color: #29B6F6;
+    color: $light-blue;
 }
 
 a {
     text-decoration: none;
+    color:$light-blue;
 }
 
 .starterkit-section {
     padding-top: 3rem;
-    margin-bottom: 3rem;
 }
 
 h3 {
-    color: #29B6F6;
+    color: $light-blue;
     font-weight: 500;
 }
 
@@ -91,6 +91,10 @@ b {
 
 .starterkit-section p {
     font-weight: 300;
+}
+
+.closing-section {
+    padding-bottom:3rem;
 }
 
 p>code {
