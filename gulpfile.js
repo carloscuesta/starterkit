@@ -45,7 +45,7 @@ var routes = {
         baseDirFiles: 'dist/**',
         ftpUploadDir: 'FTP-DIRECTORY'
     }
-}
+};
 
 /* ftpCredentials: info used to deploy @ ftp server */
 
@@ -53,7 +53,7 @@ var ftpCredentials = {
     host: 'HOST', 
     user: 'USER', 
     password: 'PASSWORD' 
-}
+};
 
 /* Compiling Tasks */
 
