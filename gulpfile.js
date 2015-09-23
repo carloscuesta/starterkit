@@ -50,9 +50,9 @@ var routes = {
 /* ftpCredentials: info used to deploy @ ftp server */
 
 var ftpCredentials = {
-    host: 'HOST', 
-    user: 'USER', 
-    password: 'PASSWORD' 
+    host: 'HOST',
+    user: 'USER',
+    password: 'PASSWORD'
 };
 
 /* Compiling Tasks */
@@ -84,7 +84,7 @@ gulp.task('styles', function() {
 // Jade
 
 gulp.task('templates', function() {
-    gulp.src([routes.templates.jade, '!' + routes.templates._jade])
+    return gulp.src([routes.templates.jade, '!' + routes.templates._jade])
         .pipe(plumber({
             errorHandler: notify.onError({
                 title: "Error: Compiling Jade.",
@@ -156,7 +156,7 @@ gulp.task('deploy', function() {
 /* Preproduction beautifiying task (SCSS, JS) */
 
 gulp.task('beautify', function() {
-    gulp.src(routes.scripts.js)
+    return gulp.src(routes.scripts.js)
         .pipe(beautify({indentSize: 4}))
         .pipe(plumber({
             errorHandler: notify.onError({
