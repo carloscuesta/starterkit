@@ -104,6 +104,12 @@ gulp.task('templates', function() {
 
 gulp.task('scripts', function() {
     return gulp.src(routes.scripts.js)
+        .pipe(plumber({
+            errorHandler: notify.onError({
+                title: "Error: Babel and Concat failed.",
+                message:"<%= error.message %>"
+            })
+        }))
         .pipe(concat('script.js'))
         .pipe(babel())
         .pipe(uglify())
