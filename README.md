@@ -71,7 +71,7 @@ Now you will be able to use ```gulp deploy``` and your ```/dist/``` folder will 
 │   ├── /images/             # Images non compressed.
 │   ├── /scripts/            # JavaScript files.
 │   ├── /styles/             # SCSS style files.
-│   │   └── _includes/       # Templating SCSS partials.
+│   │   └── _includes/       # Styles SCSS partials.
 │   ├── /templates/          # Templating Jade files.
 │   │   └── _includes/       # Templating Jade partials.
 └── gulpfile.js              # Gulp automatization file.
