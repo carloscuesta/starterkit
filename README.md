@@ -1,6 +1,7 @@
 # Carlos Cuesta Starter Kit
 
 [![Dependency Status](https://img.shields.io/david/dev/carloscuesta/starterkit.svg?style=flat-square)](https://david-dm.org/carloscuesta/starterkit#info=devDependencies)
+[![GitHub release](https://img.shields.io/github/release/carloscuesta/starterkit.svg?style=flat-square)](https://github.com/carloscuesta/starterkit/releases)
 
 <p align="center">
 	<img src="https://cloud.githubusercontent.com/assets/7629661/9838465/89626e74-5a5e-11e5-9b7d-e0ce76856732.gif" alt="Carlos Cuesta Starterkit"/>
