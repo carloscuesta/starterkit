@@ -1,7 +1,7 @@
 {
   "name": "carloscuesta-starterkit",
   "version": "1.0.0",
-  "description": "Carlos Cuesta web development starterkit",
+  "description": "Carlos Cuesta web starterkit, including my workflow with gulp, jade, scss, babel and nodejs",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
