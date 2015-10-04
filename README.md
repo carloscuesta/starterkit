@@ -14,7 +14,7 @@
 - [**Gulp**](http://gulpjs.com) - Automate and enhance your workflow
 - [**Jade**](http://jade-lang.com) - Terse language for writing HTML templates.
 - [**SASS**](http://sass-lang.com) - CSS with superpowers.
-- [**Babel**](https://babeljs.io) - Use next generation JavaScript, today (ES6 => ES5).
+- [**Babel**](https://babeljs.io) - Use next generation JavaScript, today (ES5 => ES6).
 - [**NodeJS**](https://nodejs.org) - JavaScript runtime built on Chrome's V8 JavaScript engine.
 
 ## Requirements and Use 
