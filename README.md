@@ -78,9 +78,9 @@ Now you will be able to use ```gulp deploy``` and your ```/dist/``` folder will 
 └── gulpfile.js              # Gulp automatization file.
 ```
 
-## Screenshots
+## Demo
 
-![gulp-terminal](https://cloud.githubusercontent.com/assets/7629661/9854258/31bf9354-5b08-11e5-8b1f-d4bd27c5df2b.png)
+![starterkit-terminal](https://cloud.githubusercontent.com/assets/7629661/10411872/2d17f1cc-6f74-11e5-85b2-09750a53db5e.gif)
 ![gulp-deploy](https://cloud.githubusercontent.com/assets/7629661/9824399/cece3d5a-58cc-11e5-9612-697e8a28b57b.png)
 
 ## License
