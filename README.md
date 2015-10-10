@@ -80,8 +80,7 @@ Now you will be able to use ```gulp deploy``` and your ```/dist/``` folder will 
 
 ## Demo
 
-![starterkit-terminal](https://cloud.githubusercontent.com/assets/7629661/10411872/2d17f1cc-6f74-11e5-85b2-09750a53db5e.gif)
-![gulp-deploy](https://cloud.githubusercontent.com/assets/7629661/9824399/cece3d5a-58cc-11e5-9612-697e8a28b57b.png)
+![starterkit-terminal](https://cloud.githubusercontent.com/assets/7629661/10411914/803cb756-6f75-11e5-82c3-b0832b425b77.gif)
 
 ## License
 

@@ -126,11 +126,7 @@ gulp.task('scripts', function() {
 gulp.task('images', function() {
     gulp.src(routes.files.images)
         .pipe(imagemin())
-        .pipe(gulp.dest(routes.files.imgmin))
-        .pipe(notify({
-            title: 'Images optimized!',
-            message: 'your images has been compressed.',
-        }));
+        .pipe(gulp.dest(routes.files.imgmin));
 });
 
 /* Deploy, deploy dist/ files to an ftp server */
