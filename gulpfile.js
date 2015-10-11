@@ -12,7 +12,9 @@ var gulp = require('gulp'),
     ftp = require('vinyl-ftp'),
     babel = require('gulp-babel'),
     cssimport = require('gulp-cssimport'),
-    beautify = require('gulp-beautify');
+    beautify = require('gulp-beautify'),
+    uncss = require('gulp-uncss'),
+    cssmin = require('gulp-minify-css');
 
 /* routes: object that contains the paths */
 
@@ -37,7 +39,9 @@ var routes = {
     files: {
         html: 'dist/',
         images: 'src/images/*',
-        imgmin: 'dist/assets/files/img/'
+        imgmin: 'dist/assets/files/img/',
+        cssFiles: 'dist/assets/css/*.css',
+        htmlFiles: 'dist/*.html'
     },
 
     deployDirs: {
@@ -56,6 +60,25 @@ var ftpCredentials = {
 };
 
 /* Compiling Tasks */
+
+// Jade
+
+gulp.task('templates', function() {
+    return gulp.src([routes.templates.jade, '!' + routes.templates._jade])
+        .pipe(plumber({
+            errorHandler: notify.onError({
+                title: "Error: Compiling Jade.",
+                message:"<%= error.message %>"
+            })
+        }))
+        .pipe(jade())
+        .pipe(gulp.dest(routes.files.html))
+        .pipe(browserSync.stream())
+        .pipe(notify({
+            title: 'Jade Compiled succesfully!',
+            message: 'Jade task completed.'
+        }));
+});
 
 // SCSS
 
@@ -77,26 +100,7 @@ gulp.task('styles', function() {
         .pipe(browserSync.stream())
         .pipe(notify({
             title: 'SCSS Compiled and Minified succesfully!',
-            message: 'scss task completed.',
-        }));
-});
-
-// Jade
-
-gulp.task('templates', function() {
-    return gulp.src([routes.templates.jade, '!' + routes.templates._jade])
-        .pipe(plumber({
-            errorHandler: notify.onError({
-                title: "Error: Compiling Jade.",
-                message:"<%= error.message %>"
-            })
-        }))
-        .pipe(jade())
-        .pipe(gulp.dest(routes.files.html))
-        .pipe(browserSync.stream())
-        .pipe(notify({
-            title: 'Jade Compiled succesfully!',
-            message: 'Jade task completed.',
+            message: 'scss task completed.'
         }));
 });
 
@@ -117,7 +121,7 @@ gulp.task('scripts', function() {
         .pipe(browserSync.stream())
         .pipe(notify({
             title: 'JavaScript Minified and Concatenated!',
-            message: 'your js files has been minified and concatenated.',
+            message: 'your js files has been minified and concatenated.'
         }));
 });
 
@@ -151,7 +155,7 @@ gulp.task('deploy', function() {
         .pipe(connection.dest(routes.deployDirs.ftpUploadDir))
         .pipe(notify({
             title: 'Deploy succesful!',
-            message: 'Your deploy has been done!.',
+            message: 'Your deploy has been done!.'
         }));
 });
 
@@ -169,7 +173,7 @@ gulp.task('beautify', function() {
         .pipe(gulp.dest(routes.scripts.base))
         .pipe(notify({
             title: 'JS Beautified!',
-            message: 'beautify task completed.',
+            message: 'beautify task completed.'
         }));
 });
 
@@ -183,6 +187,28 @@ gulp.task('browser-sync', function() {
     gulp.watch([routes.styles.scss, routes.styles._scss], ['styles']);
     gulp.watch([routes.templates.jade, routes.templates._jade], ['templates']);
     gulp.watch(routes.scripts.js, ['scripts', 'beautify']);
+});
+
+/* Optimize your project */
+
+gulp.task('optimize', function() {
+    return gulp.src(routes.files.cssFiles)
+        .pipe(uncss({
+            html:[routes.files.htmlFiles],
+            ignore:['*:*']
+        }))
+        .pipe(plumber({
+            errorHandler: notify.onError({
+                title: "Error: UnCSS failed.",
+                message:"<%= error.message %>"
+            })
+        }))
+        .pipe(cssmin())
+        .pipe(gulp.dest(routes.styles.css))
+        .pipe(notify({
+            title: 'Project Optimized!',
+            message: 'UnCSS completed!'
+        }));
 });
 
 gulp.task('build', ['templates', 'styles', 'scripts', 'images', 'browser-sync']);

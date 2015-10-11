@@ -47,6 +47,8 @@ $ gulp
 - ```browser-sync```: Starts a server at ```./dist/``` with all your compiled files, looking for file changes and injecting them into your browser.
 - ```beautify```: Beautify your preproduction files at ```./dist/```.
 
+```gulp optimize```: Optimizes your project using [uncss](https://github.com/giakki/uncss) (removes unused css).
+
 ```gulp deploy```: Deploy your ```dist``` folder into your server.
 
 If you want to use the **deploy** task, you will have to edit the [```gulpfile.js```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L50) lines between 52-56 with your ftp connection info: [```host```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L53) | [```user```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L54) | [```password```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L55)
