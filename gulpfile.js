@@ -16,37 +16,44 @@ var gulp = require('gulp'),
     uncss = require('gulp-uncss'),
     cssmin = require('gulp-minify-css');
 
+/* baseDirs: baseDirs for the project */
+
+var baseDirs = {
+    dist:'dist/',
+    src:'src/'
+};
+
 /* routes: object that contains the paths */
 
 var routes = {
     styles: {
-        scss: 'src/styles/*.scss',
-        _scss: 'src/styles/_includes/*.scss',
-        css: 'dist/assets/css/'
+        scss: baseDirs.src+'styles/*.scss',
+        _scss: baseDirs.src+'styles/_includes/*.scss',
+        css: baseDirs.dist+'assets/css/'
     },
 
     templates: {
-        jade: 'src/templates/*.jade',
-        _jade: 'src/templates/_includes/*.jade'
+        jade: baseDirs.src+'templates/*.jade',
+        _jade: baseDirs.src+'templates/_includes/*.jade'
     },
 
     scripts: {
-        base:'src/scripts/',
-        js: 'src/scripts/*.js',
-        jsmin: 'dist/assets/js/'
+        base:baseDirs.src+'scripts/',
+        js: baseDirs.src+'scripts/*.js',
+        jsmin: baseDirs.dist+'assets/js/'
     },
 
     files: {
         html: 'dist/',
-        images: 'src/images/*',
-        imgmin: 'dist/assets/files/img/',
-        cssFiles: 'dist/assets/css/*.css',
-        htmlFiles: 'dist/*.html'
+        images: baseDirs.src+'images/*',
+        imgmin: baseDirs.dist+'assets/files/img/',
+        cssFiles: baseDirs.dist+'assets/css/*.css',
+        htmlFiles: baseDirs.dist+'*.html'
     },
 
     deployDirs: {
-        baseDir: 'dist/',
-        baseDirFiles: 'dist/**',
+        baseDir: baseDirs.dist,
+        baseDirFiles: baseDirs.dist+'**',
         ftpUploadDir: 'FTP-DIRECTORY'
     }
 };
