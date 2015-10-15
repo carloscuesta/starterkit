@@ -233,6 +233,8 @@ gulp.task('critical', function () {
         .pipe(critical({
             base: baseDirs.dist,
             inline: true,
+            minify:true,
+            html: routes.files.htmlFiles,
             css: routes.files.styleCss,
             ignore: ['@font-face',/url\(/]
         }))
@@ -242,13 +244,12 @@ gulp.task('critical', function () {
                 message:"<%= error.message %>"
             })
         }))
-        .pipe(gulp.dest('dist'))
+        .pipe(gulp.dest(baseDirs.dist))
         .pipe(notify({
             title: 'Critical Path completed!',
             message: 'css critical path done!'
         }));
 });
-
 
 gulp.task('dev', ['templates', 'styles', 'scripts', 'images', 'serve']);
 
