@@ -58,6 +58,7 @@ $ gulp
 ```gulp optimize```: Optimizes your project (to improve the pagespeed) runs: 
 
 - ```uncss```: Removes unused CSS from your styles file using [uncss](https://github.com/giakki/uncss).
+- ```critical```: Extract and inline critical-path (above-the-fold) CSS from HTML using [critical](https://github.com/addyosmani/critical)
 - ```images```
 
 ```gulp deploy```: Deploy your ```dist``` folder into your server runs:

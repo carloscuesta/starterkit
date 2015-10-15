@@ -15,13 +15,15 @@ var gulp = require('gulp'),
     beautify = require('gulp-beautify'),
     uncss = require('gulp-uncss'),
     cssmin = require('gulp-minify-css'),
-    sourcemaps = require('gulp-sourcemaps');
+    sourcemaps = require('gulp-sourcemaps'),
+    critical = require('critical').stream;
 
 /* baseDirs: baseDirs for the project */
 
 var baseDirs = {
     dist:'dist/',
-    src:'src/'
+    src:'src/',
+    assets: 'dist/assets/'
 };
 
 /* routes: object that contains the paths */
@@ -30,7 +32,7 @@ var routes = {
     styles: {
         scss: baseDirs.src+'styles/*.scss',
         _scss: baseDirs.src+'styles/_includes/*.scss',
-        css: baseDirs.dist+'assets/css/'
+        css: baseDirs.assets+'css/'
     },
 
     templates: {
@@ -41,15 +43,16 @@ var routes = {
     scripts: {
         base:baseDirs.src+'scripts/',
         js: baseDirs.src+'scripts/*.js',
-        jsmin: baseDirs.dist+'assets/js/'
+        jsmin: baseDirs.assets+'js/'
     },
 
     files: {
         html: 'dist/',
         images: baseDirs.src+'images/*',
-        imgmin: baseDirs.dist+'assets/files/img/',
-        cssFiles: baseDirs.dist+'assets/css/*.css',
-        htmlFiles: baseDirs.dist+'*.html'
+        imgmin: baseDirs.assets+'files/img/',
+        cssFiles: baseDirs.assets+'css/*.css',
+        htmlFiles: baseDirs.dist+'*.html',
+        styleCss: baseDirs.assets+'css/style.css'
     },
 
     deployDirs: {
@@ -218,16 +221,40 @@ gulp.task('uncss', function() {
         .pipe(cssmin())
         .pipe(gulp.dest(routes.styles.css))
         .pipe(notify({
-            title: 'Project Optimized!',
+            title: 'Removed unusued CSS',
             message: 'UnCSS completed!'
         }));
 });
+
+/* Extract CSS critical-path */
+
+gulp.task('critical', function () {
+    return gulp.src(routes.files.htmlFiles)
+        .pipe(critical({
+            base: baseDirs.dist,
+            inline: true,
+            css: routes.files.styleCss,
+            ignore: ['@font-face',/url\(/]
+        }))
+        .pipe(plumber({
+            errorHandler: notify.onError({
+                title: "Error: Critical failed.",
+                message:"<%= error.message %>"
+            })
+        }))
+        .pipe(gulp.dest('dist'))
+        .pipe(notify({
+            title: 'Critical Path completed!',
+            message: 'css critical path done!'
+        }));
+});
+
 
 gulp.task('dev', ['templates', 'styles', 'scripts', 'images', 'serve']);
 
 gulp.task('build', ['templates', 'styles', 'scripts', 'images']);
 
-gulp.task('optimize', ['uncss', 'images']);
+gulp.task('optimize', ['uncss', 'critical', 'images']);
 
 gulp.task('deploy', ['optimize', 'ftp']);
 
