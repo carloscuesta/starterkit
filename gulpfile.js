@@ -236,7 +236,9 @@ gulp.task('critical', function () {
             minify:true,
             html: routes.files.htmlFiles,
             css: routes.files.styleCss,
-            ignore: ['@font-face',/url\(/]
+            ignore: ['@font-face',/url\(/],
+            width: 1300,
+            height: 900
         }))
         .pipe(plumber({
             errorHandler: notify.onError({
