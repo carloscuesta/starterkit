@@ -7,7 +7,7 @@
 	<img src="https://cloud.githubusercontent.com/assets/7629661/9838465/89626e74-5a5e-11e5-9b7d-e0ce76856732.gif" alt="Carlos Cuesta Starterkit"/>
 </p>
 
-> A simple starterkit boilerplate that I use to realize my front end static development projects. If you have comments or suggestions feel free to give me a shout on [Twitter](http://twitter.com/crloscuesta)! Also checkout the [yeoman generator-startekit](https://github.com/carloscuesta/generator-starterkit)
+> A simple starterkit boilerplate that I use to realize my front end static development projects. If you have comments or suggestions feel free to give me a shout on [Twitter](http://twitter.com/crloscuesta)! Also checkout the [yeoman generator-startekit](https://github.com/carloscuesta/generator-starterkit).
 
 ## Technologies 
 
@@ -15,6 +15,7 @@
 - [**Jade**](http://jade-lang.com) - Terse language for writing HTML templates.
 - [**SASS**](http://sass-lang.com) - CSS with superpowers.
 - [**Babel**](https://babeljs.io) - Use next generation JavaScript, today (ES5 => ES6).
+- [**Flexboxgrid**](http://flexboxgrid.com) - A grid system based on the flex display property.
 - [**NodeJS**](https://nodejs.org) - JavaScript runtime built on Chrome's V8 JavaScript engine.
 
 ## Requirements and Use 
