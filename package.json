@@ -4,7 +4,10 @@
   "description": "Carlos Cuesta web starterkit, including my workflow with gulp, jade, scss, babel and nodejs",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "gulp",
+    "build": "gulp build",
+    "optimize": "gulp optimize",
+    "deploy": "gulp deploy"
   },
   "repository": {
     "type": "git",

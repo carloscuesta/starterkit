@@ -73,6 +73,8 @@ Once you setup ```ftpCredentials```, you will have to choose a directory of your
 
 Now you will be able to use ```gulp deploy``` and your ```/dist/``` folder will go up to your ftp server!
 
+Use ```npm run``` to list the gulp tasks available. You can run the tasks too using the ```npm run _scriptname_``` that is on the list.
+
 
 ## Project Structure
 
