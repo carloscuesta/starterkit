@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Carlos Cuesta | Web Starter Kit : A Front End gulp based starterkit.</title>
+        <meta charset="utf-8">
+        <link rel="canonical" href="https://starterkit.carloscuesta.me">
+        <meta name="author" content="Carlos Cuesta">
+        <meta name="description" content="Carlos Cuesta Starterkit - A Front End gulp based workflow for your web development projects.">
+        <meta name="keywords" content="Carlos Cuesta, Carlos Cuesta Starterkit, starterkit, web starterkit, webstarterkit, gulpjs, workflow, carlos, cuesta, cuesta     starterkit, web starterkit">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:description" content="Carlos Cuesta Starterkit - A Front End gulp based workflow for your web development projects.">
+        <meta name="twitter:creator" content="@crloscuesta">
+        <meta name="twitter:url" content="https://starterkit.carloscuesta.me">
+        <meta name="twitter:title" content="Starterkit">
+        <meta property="og:image" content="https://starterkit.carloscuesta.me/assets/socialimage.png">
+        <meta name="twitter:image:src" content="https://starterkit.carloscuesta.me/assets/socialimage.png">
+<style>
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+    font-family: 'Open Sans', Helvetica;
+}
+
+header {
+    padding: 5em 1.5em;
+    color: #fff;
+}
+
+header, .download {
+    background: #f33155; /* fallback for old browsers */
+    background: #f33155; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #f33155 , #ff5858); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #f33155 , #ff5858); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+a {
+    text-decoration: none;
+}
+
+.btn {
+    border-radius: .3em;
+    border-style: solid;
+    border-width: 1px;
+    color: #fff;
+    border-color: #fff;
+    display: inline-block;
+    margin-bottom: .5em;
+    padding: .35em .75em;
+    text-decoration: none;
+    text-transform: uppercase;
+    -webkit-transition: color .4s,background-color .4s,border .4s;
+    transition: color .4s,background-color .4s,border .4s;
+    font-size:.85em;
+    margin: .25em;
+}
+
+.btn:hover {
+    background-color: #f5f5f5;
+    color:#f33155;
+}
+
+header, footer {
+    text-align: center;
+}
+
+header h1 {
+    font-weight: 700;
+    font-size: 3.5em;
+}
+
+.buttons {
+    margin: .85em;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-weight: 300;
+    margin: 0;
+}
+
+footer {
+    background-color: #f1f8fb;
+    padding: 1.25em;
+}
+
+.icon {
+    width: .85em;
+    height: .85em;
+    display: inline-block;
+}
+
+.icon-heart {
+    fill: #EC407A;
+}
+
+.wrap {
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+section {
+    padding: 3em 1.5em;
+}
+
+.about, .generator {
+    background-color: #fff;
+}
+
+.getting-started {
+    background-color: #f1f8fb;
+}
+
+blockquote {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+    border-left: 5px solid #f33155;
+}
+
+b {
+    color: #24334a;
+}
+
+.section-title {
+    font-weight: 700;
+    color: #f33155;
+}
+
+p {
+    font-weight: 300;
+    color: #37474F;
+}
+
+code {
+    background: #fff;
+    padding: .15em .25em;
+    border-radius: 4px;
+    position: relative;
+    top: -1px;
+    margin: 0 3px 0 1px;
+    font-size: 90%;
+    font-family: monospace;
+}
+
+@media(max-width:768px) {
+    header h1 {
+        font-size: 2.55em;
+    }
+}
+
+</style>
+        <script type="text/javascript">!function(){"use strict";function e(e,t,n){e.addEventListener?e.addEventListener(t,n,!1):e.attachEvent&&e.attachEvent("on"+t,n)}function t(e){return window.localStorage&&localStorage.font_css_cache&&localStorage.font_css_cache_file===e}function n(){if(window.localStorage&&window.XMLHttpRequest)if(t(o))c(localStorage.font_css_cache);else{var n=new XMLHttpRequest;n.open("GET",o,!0),e(n,"load",function(){4===n.readyState&&(c(n.responseText),localStorage.font_css_cache=n.responseText,localStorage.font_css_cache_file=o)}),n.send()}else{var a=document.createElement("link");a.href=o,a.rel="stylesheet",a.type="text/css",document.getElementsByTagName("head")[0].appendChild(a),document.cookie="font_css_cache"}}function c(e){var t=document.createElement("style");t.innerHTML=e,document.getElementsByTagName("head")[0].appendChild(t)}var o="/font.css";window.localStorage&&localStorage.font_css_cache||document.cookie.indexOf("font_css_cache")>-1?n():e(window,"load",n)}();</script><noscript><link rel="stylesheet" href="/font.css"></noscript>
+    </head>
+    <body>
+            <svg style="position: absolute; width: 0; height: 0;" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><symbol id="icon-heart" viewBox="0 0 768 1024"><title>heart</title><path class="path1" d="M384 864c399-314 384-425 384-512s-72-192-192-192-192 128-192 128-72-128-192-128-192 105-192 192-15 198 384 512z"></path></symbol></defs></svg>
+
+        <header>
+            <h1>starterkit</h1>
+            <h2>A Front End Gulp.js based workflow</h2>
+            <div class="buttons">
+                <a class="btn" href="https://github.com/carloscuesta/starterkit/" target="_blank" onclick="ga('send', 'event', 'Button', 'Header - GitHub');">GitHub</a>
+                <a class="btn" href="https://github.com/carloscuesta/starterkit/archive/master.zip" target="_blank" onclick="ga('send', 'event', 'Button', 'Header - Download');">Download</svg></a>
+                <a class="btn" href="https://github.com/carloscuesta/generator-starterkit" target="_blank" onclick="ga('send', 'event', 'Button', 'Header - Generator');">Generator</use></svg></a>
+            </div>
+        </header>
+
+        <main>
+
+            <section class="getting-started">
+                <div class="wrap">
+                    <blockquote>
+                        <h2><b>The only thing you should worry about is your code.</b></h2>
+                    </blockquote>
+                    <br>
+                    <h2 class="section-title">Getting Started</h2>
+                    <p>The <b>starterkit</b> allows you to create and build awesome sites without worrying about anything else. To get started, first you will need to <a href="https://github.com/carloscuesta/starterkit/archive/master.zip" target="_blank" onclick="ga('send', 'event', 'Link', 'Getting Started - Download');">download starterkit</a> or clone the repository using git.<div><code>$ git clone https://github.com/carloscuesta/starterkit.git</code></div></p>
+                    <p>After downloading, install the dependencies. (<i>Note: Gulp needs to be installed in your system, if not install gulp globally</i>).<div><code>$ npm install</code></div></p>
+                    <p>Now you will be able to use the <b>starterkit</b>.</p>
+                </div>
+            </section>
+
+            <section class="gulp-workflow">
+                <div class="wrap">
+                    <h2 class="section-title">Exploring Starterkit Tasks</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+            </section>
+
+            <section class="generator">
+                <div class="wrap">
+                    <h2 class="section-title">generator-starkterkit</h2>
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <h2>Made with <svg class="icon icon-heart"><use xlink:href="#icon-heart"></use></svg> by <a href="https://carloscuesta.me" target="_blank" onclick="ga('send', 'event', 'Link', 'Footer - Carlos Cuesta Website');">Carlos Cuesta</a></h2>
+        </footer>
+        <!--<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://carloscuesta.me/ga.js','ga');ga('create', 'UA-67824860-1', 'auto');ga('send', 'pageview');</script>-->
+    </body>
+</html>
