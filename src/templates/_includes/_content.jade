@@ -1,19 +1,74 @@
-.wrap.container-fluid
-    .starterkit-section
-        h3 About
-        p
-            |The <b>starterkit</b> allows you to create and build awesome sites without worrying about anything else.
-            |<b>The only thing you should worry about is your code</b>. Just <code>clone</code> the repository run <code>npm install</code> <code>gulp</code> and you're ready to go!.
-            |For more information about <code>gulp tasks</code> and the project, go to the <a href="https://github.com/carloscuesta/starterkit#carlos-cuesta-starter-kit">starterkit documentation</a>.
-    .starterkit-section
-        h3 Starterkit Generator
-        p
-            |I've created a yeoman generator to use with the starterkit.
-            |If you want to use different technologies (add / remove) something that you don't like you should use <a href="http://npmjs.com/package/generator-starterkit">generator-starterkit</a>.
-            |The <b>generator-starterkit</b> is a <a href="http://yeoman.io">yeoman generator</a> that will ask you for the technologies that you want to use and will create dynamically a project folder with all the necessary files and customized files based on your choices.
-            |To use the starterkit generator simply go to <a href="http://npmjs.com/package/generator-starterkit">generator-starterkit</a> read the documentation, and install it.
-    .starterkit-section.closing-section
-        h3 Author
-        p
-            |This starterkit has been made with ♥ by <a href="http://carloscuesta.me">Carlos Cuesta</a>.
-            |Feel free to give me a shout on twitter <a href="https://twitter.com/crloscuesta">@crloscuesta</a> and ★ the project at Github.
+main
+  section.getting-started
+    .wrap
+      blockquote
+        h2
+          b The only thing you should worry about is your code.
+      br
+      h2.section-title Getting Started
+      p
+        | The 
+        b starterkit
+        |  allows you to create and build awesome sites without worrying about anything else. To get started, first you will need to 
+        a(href='https://github.com/carloscuesta/starterkit/archive/master.zip', target='_blank', onclick="ga('send', 'event', 'Link', 'Getting Started - Download');") download starterkit
+        |  or clone the repository using git.
+        .code-block
+          a.btn.btn-background.btn-download(href='https://github.com/carloscuesta/starterkit/archive/master.zip', target='_blank', onclick="ga('send', 'event', 'Button', 'Getting Started - Download');") Download
+          code $ git clone https://github.com/carloscuesta/starterkit.git
+      p
+        | After downloading, install the dependencies. (
+        i Note: Gulp needs to be installed in your system, if not install gulp globally
+        | ).
+      .code-block-small
+        code $ npm install
+      p
+        | Now you will be able to use the 
+        b starterkit
+        | .
+  section.gulp-workflow
+    .wrap
+      h2.section-title Exploring Starterkit Tasks
+      p
+        | Starterkit comes with a lot of tasks that can be runned with:
+        .code-block-small
+          code
+            | $ gulp 
+            span.highlight-code taskname
+      p
+        | Let's take a look at them. There are 
+        b 4 main tasks
+        |  that groups a bunch of other subtasks. You can run directly a group of tasks using the main one, or just a specific one by their name.
+        ul
+          li
+            span.gulp-task gulp
+            |  : Default dev task, watch and serves your code, compiling on change and injecting them into the browser.
+          li
+            span.gulp-task build
+            |  : Compiles styles and templates, transpiles scripts, optimizes images and beautifies prepro files.
+          li
+            span.gulp-task optimize
+            |  : Clean unused CSS, extract critical path, compress images.
+          li
+            span.gulp-task deploy
+            |  : Upload your /dist folder into your server.
+      p
+        | To see with more detail the subtasks runned, please take a look at the 
+        a(href='https://github.com/carloscuesta/starterkit/#tasks', target='_blank', onclick="ga('send', 'event', 'Link', 'Gulp Workflow - Starterkit Docs');") starterkit documentation on GitHub
+        | .
+  section.generator
+    .wrap
+      h2.section-title Generator Starterkit
+      p
+        | Would you like to change or use another technologies, frameworks or languages with the same workflow? Starterkit also has a 
+        a(href='http://yeoman.io/', target='_blank') yeoman generator
+        |  that will create and scaffold out a new project with your choices and options easily in a minute.
+      a.btn.btn-background(href='https://github.com/carloscuesta/generator-starterkit/', target='_blank', onclick="ga('send', 'event', 'Link', 'Generator-Starterkit - View');") generator-starterkit
+footer
+  h2
+    | Made with 
+    svg.icon.icon-heart
+      use(xlink:href='#icon-heart')
+    |  by 
+    a(href='https://carloscuesta.me', target='_blank', onclick="ga('send', 'event', 'Link', 'Footer - Carlos Cuesta Website');") Carlos Cuesta
+script.
+    (function(i, s, o, g, r, a, m) {i['GoogleAnalyticsObject'] = r;i[r] = i[r] || function() {(i[r].q = i[r].q || []).push(arguments)}, i[r].l = 1 * new Date();a = s.createElement(o), m = s.getElementsByTagName(o)[0];a.async = 1;a.src = g;m.parentNode.insertBefore(a, m)})(window, document, 'script', 'https://carloscuesta.me/ga.js', 'ga');ga('create', 'UA-67824860-1', 'auto');ga('send', 'pageview');

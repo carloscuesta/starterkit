@@ -14,7 +14,7 @@ var gulp = require('gulp'),
     cssimport = require('gulp-cssimport'),
     beautify = require('gulp-beautify'),
     uncss = require('gulp-uncss'),
-    cssmin = require('gulp-minify-css'),
+    cssmin = require('gulp-cssnano'),
     sourcemaps = require('gulp-sourcemaps'),
     critical = require('critical').stream;
 
