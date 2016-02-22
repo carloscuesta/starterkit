@@ -1,0 +1,1 @@
+console.log('%cMade with '+'%c♥'+'%c by %cCarlos Cuesta%c\nhttp://github.com/carloscuesta\nhttp://twitter.com/crloscuesta', 'font-size:16px;color:#455A64', 'font-size:16px;color:#EC407A', 'font-size:16px;color:#455A64', 'font-size:16px;color:#455A64; font-weight:bold;', 'color:#EC407A');
