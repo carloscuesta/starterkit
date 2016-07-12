@@ -1,3 +1,5 @@
+'use strict';
+
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
     pug = require('gulp-pug'),
@@ -78,16 +80,16 @@ gulp.task('templates', function() {
     return gulp.src([routes.templates.pug, '!' + routes.templates._pug])
         .pipe(plumber({
             errorHandler: notify.onError({
-                title: "Error: Compiling pug.",
-                message:"<%= error.message %>"
+                title: 'Error: Compiling pug.',
+                message:'<%= error.message %>'
             })
         }))
         .pipe(pug())
         .pipe(gulp.dest(routes.files.html))
         .pipe(browserSync.stream())
         .pipe(notify({
-            title: 'pug Compiled succesfully!',
-            message: 'pug task completed.'
+            title: 'Pug Compiled succesfully!',
+            message: 'Pug task completed.'
         }));
 });
 
@@ -97,8 +99,8 @@ gulp.task('styles', function() {
     return gulp.src(routes.styles.scss)
         .pipe(plumber({
             errorHandler: notify.onError({
-                title: "Error: Compiling SCSS.",
-                message:"<%= error.message %>"
+                title: 'Error: Compiling SCSS.',
+                message:'<%= error.message %>'
             })
         }))
         .pipe(sourcemaps.init())
@@ -124,7 +126,7 @@ gulp.task('scripts', function() {
         .pipe(plumber({
             errorHandler: notify.onError({
                 title: "Error: Babel and Concat failed.",
-                message:"<%= error.message %>"
+                message:'<%= error.message %>'
             })
         }))
         .pipe(sourcemaps.init())
@@ -164,7 +166,7 @@ gulp.task('ftp', function() {
         .pipe(plumber({
             errorHandler: notify.onError({
                 title: "Error: Deploy failed.",
-                message:"<%= error.message %>"
+                message:'<%= error.message %>'
             })
         }))
         .pipe(connection.dest(routes.deployDirs.ftpUploadDir))
@@ -181,8 +183,8 @@ gulp.task('beautify', function() {
         .pipe(beautify({indentSize: 4}))
         .pipe(plumber({
             errorHandler: notify.onError({
-                title: "Error: Beautify failed.",
-                message:"<%= error.message %>"
+                title: 'Error: Beautify failed.',
+                message:'<%= error.message %>'
             })
         }))
         .pipe(gulp.dest(routes.scripts.base))
@@ -214,8 +216,8 @@ gulp.task('uncss', function() {
         }))
         .pipe(plumber({
             errorHandler: notify.onError({
-                title: "Error: UnCSS failed.",
-                message:"<%= error.message %>"
+                title: 'Error: UnCSS failed.',
+                message:'<%= error.message %>'
             })
         }))
         .pipe(cssmin())
@@ -242,8 +244,8 @@ gulp.task('critical', function () {
         }))
         .pipe(plumber({
             errorHandler: notify.onError({
-                title: "Error: Critical failed.",
-                message:"<%= error.message %>"
+                title: 'Error: Critical failed.',
+                message:'<%= error.message %>'
             })
         }))
         .pipe(gulp.dest(baseDirs.dist))
