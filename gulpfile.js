@@ -1,6 +1,6 @@
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
-    jade = require('gulp-jade'),
+    pug = require('gulp-pug'),
     concat = require('gulp-concat'),
     browserSync = require('browser-sync').create(),
     plumber = require('gulp-plumber'),
@@ -36,8 +36,8 @@ var routes = {
     },
 
     templates: {
-        jade: baseDirs.src+'templates/*.jade',
-        _jade: baseDirs.src+'templates/_includes/*.jade'
+        pug: baseDirs.src+'templates/*.pug',
+        _pug: baseDirs.src+'templates/_includes/*.pug'
     },
 
     scripts: {
@@ -72,22 +72,22 @@ var ftpCredentials = {
 
 /* Compiling Tasks */
 
-// Jade
+// pug
 
 gulp.task('templates', function() {
-    return gulp.src([routes.templates.jade, '!' + routes.templates._jade])
+    return gulp.src([routes.templates.pug, '!' + routes.templates._pug])
         .pipe(plumber({
             errorHandler: notify.onError({
-                title: "Error: Compiling Jade.",
+                title: "Error: Compiling pug.",
                 message:"<%= error.message %>"
             })
         }))
-        .pipe(jade())
+        .pipe(pug())
         .pipe(gulp.dest(routes.files.html))
         .pipe(browserSync.stream())
         .pipe(notify({
-            title: 'Jade Compiled succesfully!',
-            message: 'Jade task completed.'
+            title: 'pug Compiled succesfully!',
+            message: 'pug task completed.'
         }));
 });
 
@@ -200,7 +200,7 @@ gulp.task('serve', function() {
     });
 
     gulp.watch([routes.styles.scss, routes.styles._scss], ['styles']);
-    gulp.watch([routes.templates.jade, routes.templates._jade], ['templates']);
+    gulp.watch([routes.templates.pug, routes.templates._pug], ['templates']);
     gulp.watch(routes.scripts.js, ['scripts', 'beautify']);
 });
 
