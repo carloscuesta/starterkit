@@ -12,7 +12,7 @@
 ## Technologies 
 
 - [**Gulp**](http://gulpjs.com) - Automate and enhance your workflow
-- [**Jade**](http://jade-lang.com) - Terse language for writing HTML templates.
+- [**Pug**](http://jade-lang.com) - Terse language for writing HTML templates.
 - [**SASS**](http://sass-lang.com) - CSS with superpowers.
 - [**Babel**](https://babeljs.io) - Use next generation JavaScript, today (ES5 => ES6).
 - [**Flexboxgrid**](http://flexboxgrid.com) - A grid system based on the flex display property.
@@ -42,7 +42,7 @@ $ gulp
 ```gulp```: Runs the **default task** (dev) including the following ones :
 
 - ```styles```: SCSS compiling to CSS, css minification and autoprefixing.
-- ```templates```: Jade compiling and rendering to HTML.
+- ```templates```: Pug compiling and rendering to HTML.
 - ```scripts```: ES6 to ES5 with babel, scripts minification and concatenation into a single file.
 - ```images```: Image compression.
 - ```beautify```: Beautify your preproduction files at ```./dist/```.
@@ -86,15 +86,15 @@ Use ```npm run``` to list the gulp tasks available. You can run the tasks too us
 │   │   ├── /files/          # Static files.
 │   │   │   └── img/         # Images folder.
 │   │   └── /js/             # JS files.
-│   └── *.html               # Rendered and compiled HTMLs from jade.
+│   └── *.html               # Rendered and compiled HTMLs from Pug.
 ├── /node_modules/           # Node modules dependencies and packages.
 ├── /src/                    # Source files.
 │   ├── /images/             # Images non compressed.
 │   ├── /scripts/            # JavaScript files.
 │   ├── /styles/             # SCSS style files.
 │   │   └── _includes/       # Styles SCSS partials.
-│   ├── /templates/          # Templating Jade files.
-│   │   └── _includes/       # Templating Jade partials.
+│   ├── /templates/          # Templating Pug files.
+│   │   └── _includes/       # Templating Pug partials.
 └── gulpfile.js              # Gulp automatization file.
 ```
 
