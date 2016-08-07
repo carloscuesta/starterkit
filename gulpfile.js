@@ -273,7 +273,7 @@ gulp.task('build', ['templates', 'styles', 'scripts', 'images']);
 
 gulp.task('optimize', ['uncss', 'critical', 'images']);
 
-gulp.task('deploy', ['optimize', 'ftp']);
+gulp.task('deploy', ['optimize', 'surge']);
 
 gulp.task('default', function() {
     gulp.start('dev');
