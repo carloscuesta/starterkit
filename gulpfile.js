@@ -12,6 +12,7 @@ var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     uglify = require('gulp-uglify'),
     ftp = require('vinyl-ftp'),
+    surge = require('gulp-surge'),
     babel = require('gulp-babel'),
     cssimport = require('gulp-cssimport'),
     beautify = require('gulp-beautify'),
@@ -70,6 +71,10 @@ var ftpCredentials = {
     host: 'HOST',
     user: 'USER',
     password: 'PASSWORD'
+};
+
+var surgeInfo = {
+    domain: 'YOURDOMAIN.surge.sh'
 };
 
 /* Compiling Tasks */
@@ -174,6 +179,13 @@ gulp.task('ftp', function() {
             title: 'Deploy succesful!',
             message: 'Your deploy has been done!.'
         }));
+});
+
+gulp.task('surge', function() {
+    return surge({
+        project: routes.deployDirs.baseDir,
+        domain: surgeInfo.domain
+    });
 });
 
 /* Preproduction beautifiying task (SCSS, JS) */
