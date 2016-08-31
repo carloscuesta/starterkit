@@ -12,7 +12,7 @@
 ## Technologies
 
 - [**Gulp**](http://gulpjs.com) - Automate and enhance your workflow
-- [**Pug**](http://jade-lang.com) - Terse language for writing HTML templates.
+- [**Pug**](https://pugjs.org) - Terse language for writing HTML templates.
 - [**SASS**](http://sass-lang.com) - CSS with superpowers.
 - [**Babel**](https://babeljs.io) - Use next generation JavaScript, today (ES5 => ES6).
 - [**Flexboxgrid**](http://flexboxgrid.com) - A grid system based on the flex display property.
