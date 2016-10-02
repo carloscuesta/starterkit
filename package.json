@@ -9,7 +9,7 @@
     "optimize": "gulp optimize",
     "deploy": "gulp deploy",
     "clean": "rm -r ./dist",
-    "test": "xo gulpfile.js && gulp"
+    "test": "xo gulpfile.js"
   },
   "repository": {
     "type": "git",
