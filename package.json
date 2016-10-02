@@ -11,14 +11,6 @@
     "clean": "rm -r ./dist",
     "test": "xo gulpfile.js && gulp"
   },
-  "xo": {
-    "overrides": [
-        {
-            "files": "gulpfile.js",
-            "one-var": ["error", "always"]
-        }
-    ]
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/carloscuesta/starterkit.git"
