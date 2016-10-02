@@ -7,7 +7,9 @@
     "dev": "gulp",
     "build": "gulp build",
     "optimize": "gulp optimize",
-    "deploy": "gulp deploy"
+    "deploy": "gulp deploy",
+    "clean": "rm -r ./dist",
+    "test": "xo gulpfile.js"
   },
   "repository": {
     "type": "git",
@@ -34,17 +36,18 @@
     "gulp-beautify": "^2.0.0",
     "gulp-concat": "^2.6.0",
     "gulp-cssimport": "^3.1.0",
-    "gulp-imagemin": "^3.0.3",
-    "gulp-pug": "^3.0.3",
     "gulp-cssnano": "^2.1.2",
+    "gulp-imagemin": "^3.0.3",
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.1.0",
+    "gulp-pug": "^3.0.3",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^2.0.0-alpha",
     "gulp-surge": "^0.1.0",
     "gulp-uglify": "^2.0.0",
     "gulp-uncss": "^1.0.6",
-    "vinyl-ftp": "^0.5.0"
+    "vinyl-ftp": "^0.5.0",
+    "xo": "^0.16.0"
   }
 }
