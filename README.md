@@ -1,7 +1,9 @@
 # Carlos Cuesta Starter Kit
 
+[![Build Status](https://img.shields.io/travis/carloscuesta/starterkit.svg?style=flat-square)](https://travis-ci.org/carloscuesta/starterkit)
 [![Dependency Status](https://img.shields.io/david/dev/carloscuesta/starterkit.svg?style=flat-square)](https://david-dm.org/carloscuesta/starterkit#info=devDependencies)
 [![GitHub release](https://img.shields.io/github/release/carloscuesta/starterkit.svg?style=flat-square)](https://github.com/carloscuesta/starterkit/releases)
+[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg?style=flat-square)](https://github.com/sindresorhus/xo)
 
 <p align="center">
 	<img src="https://cloud.githubusercontent.com/assets/7629661/9838465/89626e74-5a5e-11e5-9b7d-e0ce76856732.gif" alt="Carlos Cuesta Starterkit"/>
@@ -68,7 +70,7 @@ $ gulp
 - ```ftp```: Uploads ```dist``` to [```ftpUploadsDir```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L58).
 - ```surge```: Uploads your ```dist``` to [Surge](http://surge.sh)
 
-If you want to use the **deploy** task, you will have to edit the [```gulpfile.js```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L65) lines between 65-69 with your ftp connection info: [```host```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L68) | [```user```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L69) | [```password```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L70). If you want to use [Surge](http://surge.sh) instead of FTP, just setup a domain name in the [```surgeInfo.domain```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L77) 
+If you want to use the **deploy** task, you will have to edit the [```gulpfile.js```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L65) lines between 65-69 with your ftp connection info: [```host```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L68) | [```user```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L69) | [```password```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L70). If you want to use [Surge](http://surge.sh) instead of FTP, just setup a domain name in the [```surgeInfo.domain```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L77)
 
 Once you setup ```ftpCredentials```, you will have to choose a directory of your server where the deploy will go: [```ftpUploadsDir```](https://github.com/carloscuesta/starterkit/blob/master/gulpfile.js#L58)
 
