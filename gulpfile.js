@@ -124,7 +124,7 @@ gulp.task('styles', function () {
 		}));
 });
 
-/* Scripts (js) ES6 => ES5, minify and concat into a single file.*/
+/* Scripts (js) ES6 => ES5, minify and concat into a single file. */
 
 gulp.task('scripts', function () {
 	return gulp.src(routes.scripts.js)
