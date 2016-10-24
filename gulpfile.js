@@ -1,25 +1,26 @@
 'use strict';
 
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var pug = require('gulp-pug');
-var concat = require('gulp-concat');
-var browserSync = require('browser-sync');
-var plumber = require('gulp-plumber');
-var notify = require('gulp-notify');
-var imagemin = require('gulp-imagemin');
-var rename = require('gulp-rename');
-var autoprefixer = require('gulp-autoprefixer');
-var uglify = require('gulp-uglify');
-var ftp = require('vinyl-ftp');
-var surge = require('gulp-surge');
-var babel = require('gulp-babel');
-var cssimport = require('gulp-cssimport');
-var beautify = require('gulp-beautify');
-var uncss = require('gulp-uncss');
-var cssmin = require('gulp-cssnano');
-var sourcemaps = require('gulp-sourcemaps');
-var critical = require('critical').stream;
+var gulp = require('gulp'),
+    sass = require('gulp-sass'),
+    pug = require('gulp-pug'),
+    concat = require('gulp-concat'),
+    browserSync = require('browser-sync'),
+    plumber = require('gulp-plumber'),
+    notify = require('gulp-notify'),
+    imagemin = require('gulp-imagemin'),
+    rename = require('gulp-rename'),
+    autoprefixer = require('gulp-autoprefixer'),
+    uglify = require('gulp-uglify'),
+    ftp = require('vinyl-ftp'),
+    surge = require('gulp-surge'),
+    babel = require('gulp-babel'),
+    cssimport = require('gulp-cssimport'),
+    beautify = require('gulp-beautify'),
+    uncss = require('gulp-uncss'),
+    cssmin = require('gulp-cssnano'),
+    sourcemaps = require('gulp-sourcemaps'),
+    critical = require('critical').stream,
+		changed = require('gulp-changed');
 
 /* baseDirs: baseDirs for the project */
 
@@ -102,6 +103,7 @@ gulp.task('templates', function () {
 
 gulp.task('styles', function () {
 	return gulp.src(routes.styles.scss)
+		.pipe(changed(routes.styles.css))
 		.pipe(plumber({
 			errorHandler: notify.onError({
 				title: 'Error: Compiling SCSS.',
@@ -128,6 +130,7 @@ gulp.task('styles', function () {
 
 gulp.task('scripts', function () {
 	return gulp.src(routes.scripts.js)
+		.pipe(changed(routes.scripts.js))
 		.pipe(plumber({
 			errorHandler: notify.onError({
 				title: 'Error: Babel and Concat failed.',
