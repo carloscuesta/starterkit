@@ -29,9 +29,7 @@
     "url": "https://github.com/carloscuesta/starterkit/issues"
   },
   "homepage": "https://github.com/carloscuesta/starterkit#readme",
-  "devDependencies": {
-    "babel-core": "^6.17.0",
-    "babel-preset-es2015": "^6.18.0",
+  "dependencies": {
     "browser-sync": "^2.17.0",
     "critical": "^0.8.0",
     "flexboxgrid": "^6.3.1",
@@ -52,7 +50,11 @@
     "gulp-surge": "^0.1.0",
     "gulp-uglify": "^2.0.0",
     "gulp-uncss": "^1.0.6",
-    "vinyl-ftp": "^0.5.0",
+    "vinyl-ftp": "^0.5.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.17.0",
+    "babel-preset-es2015": "^6.18.0",
     "xo": "^0.17.0"
   }
 }
