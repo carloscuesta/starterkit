@@ -1,29 +1,29 @@
 'use strict';
 
-var gulp = require('gulp');
-var sass = require('gulp-sass');
-var pug = require('gulp-pug');
-var concat = require('gulp-concat');
-var browserSync = require('browser-sync');
-var plumber = require('gulp-plumber');
-var notify = require('gulp-notify');
-var imagemin = require('gulp-imagemin');
-var rename = require('gulp-rename');
-var autoprefixer = require('gulp-autoprefixer');
-var uglify = require('gulp-uglify');
-var ftp = require('vinyl-ftp');
-var surge = require('gulp-surge');
-var babel = require('gulp-babel');
-var cssimport = require('gulp-cssimport');
-var beautify = require('gulp-beautify');
-var uncss = require('gulp-uncss');
-var cssmin = require('gulp-cssnano');
-var sourcemaps = require('gulp-sourcemaps');
-var critical = require('critical').stream;
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const pug = require('gulp-pug');
+const concat = require('gulp-concat');
+const browserSync = require('browser-sync');
+const plumber = require('gulp-plumber');
+const notify = require('gulp-notify');
+const imagemin = require('gulp-imagemin');
+const rename = require('gulp-rename');
+const autoprefixer = require('gulp-autoprefixer');
+const uglify = require('gulp-uglify');
+const ftp = require('vinyl-ftp');
+const surge = require('gulp-surge');
+const babel = require('gulp-babel');
+const cssimport = require('gulp-cssimport');
+const beautify = require('gulp-beautify');
+const uncss = require('gulp-uncss');
+const cssmin = require('gulp-cssnano');
+const sourcemaps = require('gulp-sourcemaps');
+const critical = require('critical').stream;
 
 /* baseDirs: baseDirs for the project */
 
-var baseDirs = {
+const baseDirs = {
 	dist: 'dist/',
 	src: 'src/',
 	assets: 'dist/assets/'
@@ -31,49 +31,49 @@ var baseDirs = {
 
 /* routes: object that contains the paths */
 
-var routes = {
+const routes = {
 	styles: {
-		scss: baseDirs.src + 'styles/*.scss',
-		_scss: baseDirs.src + 'styles/_includes/*.scss',
-		css: baseDirs.assets + 'css/'
+		scss: `${baseDirs.src}styles/*.scss`,
+		_scss: `${baseDirs.src}styles/_includes/*.scss`,
+		css: `${baseDirs.dist}css/`
 	},
 
 	templates: {
-		pug: baseDirs.src + 'templates/*.pug',
-		_pug: baseDirs.src + 'templates/_includes/*.pug'
+		pug: `${baseDirs.src}templates/*.pug`,
+		_pug: `${baseDirs.src}templates/_includes/*.pug`
 	},
 
 	scripts: {
-		base: baseDirs.src + 'scripts/',
-		js: baseDirs.src + 'scripts/*.js',
-		jsmin: baseDirs.assets + 'js/'
+		base: `${baseDirs.src}scripts/`,
+		js: `${baseDirs.src}scripts/*.js`,
+		jsmin: `${baseDirs.dist}js/`
 	},
 
 	files: {
 		html: 'dist/',
-		images: baseDirs.src + 'images/*',
-		imgmin: baseDirs.assets + 'files/img/',
-		cssFiles: baseDirs.assets + 'css/*.css',
-		htmlFiles: baseDirs.dist + '*.html',
-		styleCss: baseDirs.assets + 'css/style.css'
+		images: `${baseDirs.src}images/*`,
+		imgmin: `${baseDirs.dist}files/img/`,
+		cssFiles: `${baseDirs.dist}css/*.css`,
+		htmlFiles: `${baseDirs.dist}*.html`,
+		styleCss: `${baseDirs.dist}css/style.css`
 	},
 
 	deployDirs: {
 		baseDir: baseDirs.dist,
-		baseDirFiles: baseDirs.dist + '**',
+		baseDirFiles: `${baseDirs.dist}**`,
 		ftpUploadDir: 'FTP-DIRECTORY'
 	}
 };
 
 /* ftpCredentials: info used to deploy @ ftp server */
 
-var ftpCredentials = {
+const ftpCredentials = {
 	host: 'HOST',
 	user: 'USER',
 	password: 'PASSWORD'
 };
 
-var surgeInfo = {
+const surgeInfo = {
 	domain: 'YOURDOMAIN.surge.sh'
 };
 
@@ -81,7 +81,7 @@ var surgeInfo = {
 
 // pug
 
-gulp.task('templates', function () {
+gulp.task('templates', () => {
 	return gulp.src([routes.templates.pug, '!' + routes.templates._pug])
 		.pipe(plumber({
 			errorHandler: notify.onError({
@@ -100,7 +100,7 @@ gulp.task('templates', function () {
 
 // SCSS
 
-gulp.task('styles', function () {
+gulp.task('styles', () => {
 	return gulp.src(routes.styles.scss)
 		.pipe(plumber({
 			errorHandler: notify.onError({
@@ -126,7 +126,7 @@ gulp.task('styles', function () {
 
 /* Scripts (js) ES6 => ES5, minify and concat into a single file. */
 
-gulp.task('scripts', function () {
+gulp.task('scripts', () => {
 	return gulp.src(routes.scripts.js)
 		.pipe(plumber({
 			errorHandler: notify.onError({
@@ -149,7 +149,7 @@ gulp.task('scripts', function () {
 
 /* Image compressing task */
 
-gulp.task('images', function () {
+gulp.task('images', () => {
 	gulp.src(routes.files.images)
 		.pipe(imagemin())
 		.pipe(gulp.dest(routes.files.imgmin));
@@ -157,8 +157,8 @@ gulp.task('images', function () {
 
 /* Deploy, deploy dist/ files to an ftp server */
 
-gulp.task('ftp', function () {
-	var connection = ftp.create({
+gulp.task('ftp', () => {
+	const connection = ftp.create({
 		host: ftpCredentials.host,
 		user: ftpCredentials.user,
 		password: ftpCredentials.password
@@ -181,7 +181,7 @@ gulp.task('ftp', function () {
 		}));
 });
 
-gulp.task('surge', function () {
+gulp.task('surge', () => {
 	return surge({
 		project: routes.deployDirs.baseDir,
 		domain: surgeInfo.domain
@@ -190,7 +190,7 @@ gulp.task('surge', function () {
 
 /* Preproduction beautifiying task (SCSS, JS) */
 
-gulp.task('beautify', function () {
+gulp.task('beautify', () => {
 	return gulp.src(routes.scripts.js)
 		.pipe(beautify({indentSize: 4}))
 		.pipe(plumber({
@@ -208,7 +208,7 @@ gulp.task('beautify', function () {
 
 /* Serving (browserSync) and watching for changes in files */
 
-gulp.task('serve', function () {
+gulp.task('serve', () => {
 	browserSync.init({
 		server: './dist/'
 	});
@@ -220,7 +220,7 @@ gulp.task('serve', function () {
 
 /* Remove unusued css */
 
-gulp.task('uncss', function () {
+gulp.task('uncss', () => {
 	return gulp.src(routes.files.cssFiles)
 		.pipe(uncss({
 			html: [routes.files.htmlFiles],
@@ -242,7 +242,7 @@ gulp.task('uncss', function () {
 
 /* Extract CSS critical-path */
 
-gulp.task('critical', function () {
+gulp.task('critical', () => {
 	return gulp.src(routes.files.htmlFiles)
 		.pipe(critical({
 			base: baseDirs.dist,
@@ -275,6 +275,6 @@ gulp.task('optimize', ['uncss', 'critical', 'images']);
 
 gulp.task('deploy', ['optimize', 'surge']);
 
-gulp.task('default', function () {
+gulp.task('default', () => {
 	gulp.start('dev');
 });
