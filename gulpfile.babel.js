@@ -1,25 +1,25 @@
 'use strict';
 
-const gulp = require('gulp');
-const sass = require('gulp-sass');
-const pug = require('gulp-pug');
-const concat = require('gulp-concat');
-const browserSync = require('browser-sync');
-const plumber = require('gulp-plumber');
-const notify = require('gulp-notify');
-const imagemin = require('gulp-imagemin');
-const rename = require('gulp-rename');
-const autoprefixer = require('gulp-autoprefixer');
-const uglify = require('gulp-uglify');
-const ftp = require('vinyl-ftp');
-const surge = require('gulp-surge');
-const babel = require('gulp-babel');
-const cssimport = require('gulp-cssimport');
-const beautify = require('gulp-beautify');
-const uncss = require('gulp-uncss');
-const cssmin = require('gulp-cssnano');
-const sourcemaps = require('gulp-sourcemaps');
-const critical = require('critical').stream;
+import gulp from 'gulp'
+import sass from 'gulp-sass'
+import pug from 'gulp-pug'
+import concat from 'gulp-concat'
+import browserSync from 'browser-sync'
+import plumber from 'gulp-plumber'
+import notify from 'gulp-notify'
+import imagemin from 'gulp-imagemin'
+import rename from 'gulp-rename'
+import autoprefixer from 'gulp-autoprefixer'
+import uglify from 'gulp-uglify'
+import ftp from 'vinyl-ftp'
+import surge from 'gulp-surge'
+import babel from 'gulp-babel'
+import cssimport from 'gulp-cssimport'
+import beautify from 'gulp-beautify'
+import uncss from 'gulp-uncss'
+import cssmin from 'gulp-cssnano'
+import sourcemaps from 'gulp-sourcemaps'
+import critical from 'critical'
 
 /* baseDirs: baseDirs for the project */
 
