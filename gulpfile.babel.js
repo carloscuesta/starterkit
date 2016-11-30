@@ -35,7 +35,7 @@ const routes = {
 	styles: {
 		scss: `${baseDirs.src}styles/*.scss`,
 		_scss: `${baseDirs.src}styles/_includes/*.scss`,
-		css: `${baseDirs.dist}css/`
+		css: `${baseDirs.dist}assets/css/`
 	},
 
 	templates: {
@@ -46,15 +46,15 @@ const routes = {
 	scripts: {
 		base: `${baseDirs.src}scripts/`,
 		js: `${baseDirs.src}scripts/*.js`,
-		jsmin: `${baseDirs.dist}js/`
+		jsmin: `${baseDirs.dist}assets/js/`
 	},
 
 	files: {
 		html: 'dist/',
 		images: `${baseDirs.src}images/*`,
-		imgmin: `${baseDirs.dist}files/img/`,
-		cssFiles: `${baseDirs.dist}css/*.css`,
-		htmlFiles: `${baseDirs.dist}*.html`,
+		imgmin: `${baseDirs.dist}assets/files/img/`,
+		cssFiles: `${baseDirs.dist}assets/css/*.css`,
+		htmlFiles: `${baseDirs.dist}assets/*.html`,
 		styleCss: `${baseDirs.dist}css/style.css`
 	},
 
