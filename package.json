@@ -50,7 +50,7 @@
     "gulp-surge": "^0.1.0",
     "gulp-uglify": "^2.0.0",
     "gulp-uncss": "^1.0.6",
-    "vinyl-ftp": "^0.5.0"
+    "vinyl-ftp": "^0.6.0"
   },
   "devDependencies": {
     "babel-core": "^6.17.0",
