@@ -244,7 +244,7 @@ gulp.task('uncss', () => {
 
 gulp.task('critical', () => {
 	return gulp.src(routes.files.htmlFiles)
-		.pipe(critical({
+		.pipe(critical.stream({
 			base: baseDirs.dist,
 			inline: true,
 			minify: true,
